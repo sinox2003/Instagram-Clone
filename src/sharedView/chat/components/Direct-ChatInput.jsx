@@ -51,6 +51,7 @@ function DirectChatInput({user,chatId}) {
         const file = e.target.files[0];
         if (file) {
             setImage(file);
+
         }
     };
 
@@ -74,10 +75,12 @@ function DirectChatInput({user,chatId}) {
         if (message === "❤️") {
             handleSend();
         }
-        if (image) {
+        if (image || message) {
             setShowPost(true);
+        }else {
+            setShowPost(false);
         }
-    }, [message,message]);
+    }, [message,image]);
 
 
 
@@ -105,7 +108,7 @@ function DirectChatInput({user,chatId}) {
 
         const newMessage = {
             id: v4(),
-            text: message,
+            text: message ,
             senderId: authUser.uid,
             date: Date.now(),
             ...(imageUrl && { img: imageUrl }),
@@ -117,11 +120,11 @@ function DirectChatInput({user,chatId}) {
 
         await Promise.all([
             updateDoc(doc(firestore, "userChats", authUser.uid), {
-                [`${chatId}.lastMessage`]: { text:message },
+                [`${chatId}.lastMessage`]: { text:message || "you sent a photo" },
                 [`${chatId}.date`]: serverTimestamp(),
             }),
             updateDoc(doc(firestore, "userChats", user.uid), {
-                [`${chatId}.lastMessage`]: { text:message },
+                [`${chatId}.lastMessage`]: { text:message || `${authUser.username } sent a photo`},
                 [`${chatId}.date`]: serverTimestamp(),
             }),
         ]);

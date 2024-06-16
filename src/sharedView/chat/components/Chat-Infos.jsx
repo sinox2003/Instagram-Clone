@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import {GoArrowLeft} from "react-icons/go";
 import {useNavigate} from "react-router-dom";
-import useDeleteChat from "../../../hooks/back-end-hooks/useDeleteChat.jsx";
+import useDeleteChat from "../../../hooks/back-end-hooks/useDeleteChat.js";
 
 function ChatInfos({isOpen,onClose,user,chatId}) {
 
