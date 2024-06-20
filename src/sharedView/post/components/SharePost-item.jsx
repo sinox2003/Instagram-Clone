@@ -38,7 +38,7 @@ function SharePostItem({user,uid, chatId,sendTo, removeFromList,  isChecked }) {
                     <HStack w='full'>
                         <Avatar w='44px' height='44px' src={user?.profilePicURL} />
                         <Box maxH={'44px'} >
-                            <Text fontSize='sm' fontWeight='semibold' cursor={'pointer'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={{base:'170px',md:'200px'}}>{user?.username}</Text>
+                            <Text fontSize='sm' fontWeight='semibold' cursor={'pointer'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={{base:'170px',md:'270px'}}>{user?.username}</Text>
                         </Box>
                     </HStack>
                     <Spacer />
