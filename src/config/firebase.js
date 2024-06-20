@@ -7,7 +7,12 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
- // put you firebase infos
+    apiKey: "AIzaSyDNigg7_TBNMftH68vNZwekaMgnGRFWils",
+    authDomain: "instaclone-2bf02.firebaseapp.com",
+    projectId: "instaclone-2bf02",
+    storageBucket: "instaclone-2bf02.appspot.com",
+    messagingSenderId: "330408501521",
+    appId: "1:330408501521:web:85e33056735fa48f1d6cb0"
 };
 
 // Initialize Firebase

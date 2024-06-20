@@ -6,7 +6,7 @@ import {
     Input,
     HStack,
     Text,
-    useColorMode,
+    useColorMode, Spinner,
 } from "@chakra-ui/react";
 import { BsEmojiSmile } from "react-icons/bs";
 import Picker from "@emoji-mart/react";
@@ -25,6 +25,8 @@ function DirectChatInput({user,chatId}) {
     const [isPickerVisible, setPickerVisible] = useState(false);
     const [message, setMessage] = useState("");
     const messageRef = useRef();
+    const [isLoading, setIsLoading] = useState(false)
+
     const [showPost, setShowPost] = useState(false);
     const [image, setImage] = useState(null);
     const { colorMode } = useColorMode();
@@ -86,6 +88,7 @@ function DirectChatInput({user,chatId}) {
 
 
     const handleSend = async () => {
+        setIsLoading(true)
         let imageUrl = null;
         if (image) {
             const storageRef = ref(storage, `chats/${v4()}`);
@@ -132,6 +135,7 @@ function DirectChatInput({user,chatId}) {
         setMessage("");
         setImage(null);
         setShowPost(false);
+        setIsLoading(false)
     };
 
     return (
@@ -191,6 +195,9 @@ function DirectChatInput({user,chatId}) {
                         placeholder="Message..."
                     />
                     {showPost ? (
+                        isLoading ?
+                            <Spinner size={'xs'} mr={5} ml={2} />
+                            :
                         <Text
                             color={"#1698F6"}
                             mr={4}

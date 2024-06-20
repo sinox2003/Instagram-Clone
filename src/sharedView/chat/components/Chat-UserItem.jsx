@@ -42,7 +42,7 @@ function ChatUserItem({userId,myId,lastMessage}) {
                     {/*<AvatarBadge boxSize='1em' bottom={1} right={1} borderColor={switchMode('black','white')} bg='#19D14F' />*/}
                 </Avatar>
                 <Flex w={'full'} direction={'column'} display={{base:'none',lg:'block'}} >
-                    <Text fontSize={'15px'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'170px'} >
+                    <Text fontSize={'15px'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'240px'} >
                         {userProfile?.username}
                     </Text>
                     <Text fontSize={'xs'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'} color={'#bdbdbd'}>
