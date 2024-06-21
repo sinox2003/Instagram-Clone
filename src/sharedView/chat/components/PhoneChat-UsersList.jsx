@@ -1,4 +1,4 @@
-import { HStack, IconButton, Text, useColorMode, useDisclosure, VStack } from "@chakra-ui/react";
+import {Box, HStack, IconButton, Text, useColorMode, useDisclosure, VStack} from "@chakra-ui/react";
 import { PiNotePencilLight } from "react-icons/pi";
 import ChatUserItemSkeleton from "./Chat-UserItemSkeleton.jsx";
 import PhoneChatUserItem from "./PhoneChat-UserItem.jsx";
@@ -56,19 +56,22 @@ function PhoneChatUsersList() {
             <HStack w={'full'} px={4} pb={1}>
                 <Text fontSize={'md'} fontWeight={'bold'}>Messages</Text>
             </HStack>
-            <VStack overflowY='scroll' h={'full'} minH={'fit-content'} pb={3} w={'full'} >
-                {
-                    loading ?
-                        Array.from({ length: 4 }).map((_, index) => (
-                            <PhoneChatUserItemSkeleton key={index} />
-                        ))
-                        :
-                        sortedChats.map((chat) => (
+            <Box h={'calc(100% - 100px)'}  w={'full'}>
+                <VStack overflowY='scroll' h={'full'} pb={3} w={'full'} >
+                    {
+                        loading ?
+                            Array.from({ length: 4 }).map((_, index) => (
+                                <PhoneChatUserItemSkeleton key={index} />
+                            ))
+                            :
+                            sortedChats.map((chat) => (
 
-                            <PhoneChatUserItem key={chat[0]} myId={authUser.uid} userId={chat[1].userInfo.uid} lastMessage={chat[1].lastMessage?.text} />
-                        ))
-                }
-            </VStack>
+                                <PhoneChatUserItem key={chat[0]} myId={authUser.uid} userId={chat[1].userInfo.uid} lastMessage={chat[1].lastMessage?.text} />
+                            ))
+                    }
+                </VStack>
+            </Box>
+
             <ChatSearchModal onClose={onClose} isOpen={isOpen} />
         </VStack>
     );
