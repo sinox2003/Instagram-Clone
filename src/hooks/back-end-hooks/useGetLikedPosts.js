@@ -26,6 +26,7 @@ const useGetLikedPosts = (username) => {
                 const querySnapshot = await getDocs(postsQuery);
 
                 querySnapshot.forEach((doc) => {
+                    // console.log( doc.id)
                     likedPostsData.push({ ...doc.data(), id: doc.id });
                 });
 

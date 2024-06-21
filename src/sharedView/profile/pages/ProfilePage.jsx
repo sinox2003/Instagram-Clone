@@ -8,12 +8,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import NotFoundPage from "../../error-pages/NotFoundPage.jsx";
 import ProgressLoader from "../../loading-pages/ProgressLoader.jsx";
 import useGetUserProfileByUsername from "../../../hooks/back-end-hooks/useGetUserProfileByUsername.js";
+import UseGetUserByUsernameRealTime from "../../../hooks/back-end-hooks/useGetUserByUsername-RealTime.js";
 
 function ProfilePage() {
     const { toggle } = useToggleSidebar();
     const { username } = useParams();
     const navigate = useNavigate();
-    const { isLoading, user } = useGetUserProfileByUsername(username);
+    const { isLoading, user } = UseGetUserByUsernameRealTime(username);
     const userNotFound = !isLoading && !user;
 
     useEffect(() => {
