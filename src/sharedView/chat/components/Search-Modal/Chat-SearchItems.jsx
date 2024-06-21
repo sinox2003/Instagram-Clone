@@ -51,7 +51,7 @@ function ChatSearchItems({handleClose,searchedUsers,isSearchLoading}) {
 
             }else {
 
-                navigate(`d/${combinedId}`)
+                navigate(`/main/chat/d/${combinedId}`)
             }
             handleClose();
 
