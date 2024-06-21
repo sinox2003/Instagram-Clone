@@ -45,7 +45,7 @@ function PhoneChatUsersList() {
     }, [chats]);
 
     return (
-        <VStack w={'full'} display={{ base: 'flex', md: 'none' }} bg={switchMode('black', 'white')} h={'100vh'} zIndex={2000} alignItems={'center'}>
+        <VStack w={'full'} display={{ base: 'flex', md: 'none' }} bg={switchMode('black', 'white')} h={'100vh'} pb={4} zIndex={2000} alignItems={'center'}>
             <HStack w={'full'} justifyContent={'space-between'} py={2} px={3}>
                 <Link to={'/main/home'}>
                     <GoArrowLeft size={29} strokeWidth={0.2} />
@@ -56,7 +56,7 @@ function PhoneChatUsersList() {
             <HStack w={'full'} px={4} pb={1}>
                 <Text fontSize={'md'} fontWeight={'bold'}>Messages</Text>
             </HStack>
-            <VStack overflowY='scroll' h={'full'} w={'full'} pb={4}>
+            <VStack overflowY='scroll' h={'full'} w={'full'} >
                 {
                     loading ?
                         Array.from({ length: 4 }).map((_, index) => (
