@@ -56,7 +56,7 @@ function PhoneChatUsersList() {
             <HStack w={'full'} px={4} pb={1}>
                 <Text fontSize={'md'} fontWeight={'bold'}>Messages</Text>
             </HStack>
-            <VStack overflowY='scroll' h={'full'} w={'full'}>
+            <VStack overflowY='scroll' h={'full'} w={'full'} pb={3}>
                 {
                     loading ?
                         Array.from({ length: 4 }).map((_, index) => (
