@@ -11,7 +11,7 @@ function FeedPosts() {
 
 
     const{posts,isLoading,isNextLoading,isInfiniteScrolling,getNextFeedPosts} =useGetFeedPosts()
-    const topRef=useRef()
+
 
     const{inView,ref}=useInView()
 
@@ -26,14 +26,9 @@ function FeedPosts() {
     }, [inView]);
 
 
-    useEffect(() => {
-        topRef.current.scrollIntoView();
-
-    }, []);
-
 
     return (
-        <VStack flex={2} ref={topRef} py={10} spacing={6}>
+        <VStack flex={2}  py={10} spacing={6}>
             {isLoading  ? (
                 [0,1,2,3].map((key) =>
                     <FeedPostSkeleton key={key} />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useRef} from 'react';
 import { Box, Container, Flex, useBreakpoint, VStack } from "@chakra-ui/react";
 import useToggleSidebar from "../../../hooks/useToggleSidebar.jsx";
 
@@ -8,6 +8,7 @@ import SuggestedUsers from "../components/suggestedUsers/SuggestedUsers.jsx";
 
 function HomePage() {
     const { toggle } = useToggleSidebar();
+    const topRef=useRef()
 
     useEffect(() => {
         toggle(false);
@@ -21,13 +22,18 @@ function HomePage() {
         md: 'md',
     });
 
+    useEffect(() => {
+        topRef.current.scrollIntoView();
+
+    }, []);
+
 
 
 
     const isSmallScreen = ['base', 'xs', 'sm', 'smd'].includes(display);
 
     return (
-        <VStack w="full">
+        <VStack w="full"  ref={topRef}>
             <HomeNavBar />
             {isSmallScreen ? (
                 <Box w="full" my="50px">

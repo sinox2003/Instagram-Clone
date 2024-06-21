@@ -9,7 +9,6 @@ import {useInView} from "react-intersection-observer";
 function ExplorePosts() {
     const { isLoading, posts, getNextPosts, isNextLoading,latestDoc,isInfiniteScrolling } = useGetAllPosts();
     const{inView,ref}=useInView()
-    const topRef=useRef()
 
     useEffect(() => {
         // console.log(inView)
@@ -21,16 +20,11 @@ function ExplorePosts() {
     }, [inView]);
 
 
-    useEffect(() => {
-        topRef.current.scrollIntoView();
-
-    }, []);
-
 
 
 
     return (
-        <VStack flex={2} ref={topRef} id={"container"}  py={10} spacing={6}>
+        <VStack flex={2}  id={"container"}  py={10} spacing={6}>
             {isLoading ? (
                 [0, 1, 2, 3].map((key) => (
                     <FeedPostSkeleton key={key} />
