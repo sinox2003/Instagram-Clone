@@ -23,7 +23,7 @@ const useChattedUsers = (isOpen) => {
                 async (doc) => {
                     if (doc.exists()) {
                         const userChatsData = doc.data();
-                        console.log("Fetched user chats data:", userChatsData);
+                        // console.log("Fetched user chats data:", userChatsData);
                         const chattedUsersData = await Promise.all(
                             Object.entries(userChatsData).map(async ([chatId, chatData]) => {
                                 const userInfo = chatData.userInfo;
@@ -39,7 +39,7 @@ const useChattedUsers = (isOpen) => {
                                 };
                             })
                         );
-                        console.log(chattedUsersData)
+                        // console.log(chattedUsersData)
                         setChattedUsers(chattedUsersData);
                     } else {
                         setChattedUsers([]);

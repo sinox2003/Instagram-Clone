@@ -7,13 +7,15 @@ import {doc, getDoc, serverTimestamp, setDoc, updateDoc} from "firebase/firestor
 import useChatStore from "../../../../store/Backend-stores/chatStore.js";
 import useAuthStore from "../../../../store/Backend-stores/authStore.js";
 import {firestore} from "../../../../config/firebase.js";
+import {useNavigate} from "react-router-dom";
 
 function ChatSearchItems({handleClose,searchedUsers,isSearchLoading}) {
 
 
     const [selectLoading, setSelectLoading] = useState(false)
     const authUser = useAuthStore(state => state.user);
-    const setSelectedUser = useChatStore(state => state.setUser)
+    // const setSelectedUser = useChatStore(state => state.setUser)
+    const navigate=useNavigate()
 
     const handleSelect = async (userData) => {
         setSelectLoading(true);
@@ -39,18 +41,20 @@ function ChatSearchItems({handleClose,searchedUsers,isSearchLoading}) {
                 await updateDoc(doc(firestore, "userChats", userData.uid), {
                     [combinedId+".userInfo"]: {
                         uid: authUser.uid,
-                        username: authUser.username,
-                        profilePicUrl: authUser.profilePicURL,
+                        // username: authUser.username,
+                        // profilePicUrl: authUser.profilePicURL,
                     },
                     [combinedId+".date"]: serverTimestamp(),
                 });
                 console.log("user added in selected user chat");
                 setSelectLoading(false)
 
+            }else {
+
+                navigate(`d/${combinedId}`)
             }
             handleClose();
-            setSelectedUser({user:userData,chatId:combinedId});
-            localStorage.setItem("selected-user", JSON.stringify({user:userData,chatId:combinedId}));
+
         } catch (err) {
             console.log(err);
         }

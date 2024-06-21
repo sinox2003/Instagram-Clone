@@ -109,9 +109,6 @@ function PostOptionsModal() {
         }
     };
 
-    useEffect(() => {
-        console.log(isFollowing)
-    }, []);
 
 
     return (
