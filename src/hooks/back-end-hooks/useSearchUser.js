@@ -1,4 +1,4 @@
-import {query, collection, getDocs, orderBy, startAt, endAt, limit} from 'firebase/firestore';
+import { query, collection, getDocs, orderBy, startAt, endAt, limit, where } from 'firebase/firestore';
 import { useState } from 'react';
 import { firestore } from '../../config/firebase.js';
 
@@ -12,18 +12,19 @@ const useSearchUser = () => {
         setUser([]);
         setError(null);
         try {
+            const lowerCaseUsername = username.toLowerCase(); // Convert input to lowercase
             const usersRef = collection(firestore, 'users');
             const q = query(usersRef,
                 orderBy('username'),
-                startAt(username),
-                endAt(username + '\uf8ff'),
+                startAt(lowerCaseUsername),
+                endAt(lowerCaseUsername + '\uf8ff'),
                 limit(8)); // Limit the number of results to 8
             const querySnapshot = await getDocs(q);
 
             const users = [];
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
-                if (data.username.includes(username)) {
+                if (data.username.toLowerCase().includes(lowerCaseUsername)) { // Check with lowercase
                     users.push(data);
                 }
             });
@@ -37,7 +38,6 @@ const useSearchUser = () => {
             setIsLoading(false);
         }
     };
-
 
     return { isLoading, getUserProfile, user, setUser, error };
 };
