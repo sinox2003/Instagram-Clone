@@ -64,7 +64,7 @@ function ImageCropTab({ handleSelect }) {
                   }}
               />
           </Box>
-            <AspectRatioButton setAspect={setAspect} setOjectFit={setOjectFit} img={imageSrc} />
+            <AspectRatioButton setAspect={setAspect} setOjectFit={setOjectFit} imageSrc={imageSrc} />
 
         </Box>
     );

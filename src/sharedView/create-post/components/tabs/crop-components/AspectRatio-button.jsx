@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Button, IconButton, Menu, MenuButton, MenuDivider, MenuList, useColorMode} from "@chakra-ui/react";
 import {MdAspectRatio} from "react-icons/md";
 import {FaRegSquare} from "react-icons/fa";
 import {LuRectangleHorizontal, LuRectangleVertical} from "react-icons/lu";
 import {TbRectangle} from "react-icons/tb";
 
-function AspectRatioButton({setAspect,setOjectFit,img}) {
+function AspectRatioButton({setAspect,setOjectFit,imageSrc}) {
 
     const { colorMode, toggleColorMode } = useColorMode();
     const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
-   
+
+    const setFullAspectRatio=()=>{
+        const img=new Image();
+        img.src=imageSrc;
+        setAspect(img.width/img.height);
+        setOjectFit('contain')
+    }
 
     
 
@@ -29,6 +35,9 @@ function AspectRatioButton({setAspect,setOjectFit,img}) {
                     </Button>
                     <MenuDivider />
              
+                    <Button variant='ghost' onClick={setFullAspectRatio} icon={<FaRegSquare size={25} />}>
+                        full
+                    </Button>
                     <Button variant='ghost' onClick={()=>setAspect(1)} icon={<FaRegSquare size={25} />}>
                         1:1
                     </Button>
