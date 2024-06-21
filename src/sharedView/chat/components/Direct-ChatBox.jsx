@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {doc, limit, onSnapshot} from "firebase/firestore";
+import {collection, doc, limit, onSnapshot, orderBy, query} from "firebase/firestore";
 import { firestore } from "../../../config/firebase.js";
 import { Box, VStack, Spinner } from "@chakra-ui/react";
 import Message from "./Messages/Message.jsx";
@@ -12,8 +12,9 @@ function DirectChatBox({ id ,user}) {
     const {inView,ref}=useInView()
 
     useEffect(() => {
+
+
         const unSub = onSnapshot(doc(firestore, "chats", id), (doc) => {
-            console.log(doc.data())
             if (doc.exists()) {
                 setMessages(doc.data().messages);
                 setLoading(false);
