@@ -38,8 +38,8 @@ function PathNavItem({path,name,icon,filledIcon}) {
 
                      <Box  display={handleState('block',{base:'block',xl:'none'})}>
 
-                         <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={8} >
-                             <IconButton    variant={{base:"styled",md:"ghost"}}  onClick={close}  px={3} py={6}     icon={isActive ? filledIcon : icon}  aria-label={name}/>
+                         <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={9} >
+                             <IconButton    variant={{base:"styled",md:"ghost"}}   onClick={close}  px={3} py={6}     icon={isActive ? filledIcon : icon}  aria-label={name}/>
                          </Tooltip>
                      </Box>
 

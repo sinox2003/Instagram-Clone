@@ -42,6 +42,7 @@ const baseStyle = definePartsStyle({
 
 const zIndices = {
     modal: 1440,
+
 };
 
 

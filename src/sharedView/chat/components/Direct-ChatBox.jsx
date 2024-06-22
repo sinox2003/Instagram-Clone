@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {collection, doc, limit, onSnapshot, orderBy, query} from "firebase/firestore";
+import {collection, doc, limit, onSnapshot, orderBy, query, serverTimestamp} from "firebase/firestore";
 import { firestore } from "../../../config/firebase.js";
 import { Box, VStack, Spinner } from "@chakra-ui/react";
 import Message from "./Messages/Message.jsx";
@@ -8,12 +8,10 @@ import {useInView} from "react-intersection-observer";
 function DirectChatBox({ id ,user}) {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(true);
-    const refBottom=useRef()
-    const {inView,ref}=useInView()
+    const refBottom = useRef();
+    const {inView, ref} = useInView();
 
     useEffect(() => {
-
-
         const unSub = onSnapshot(doc(firestore, "chats", id), (doc) => {
             if (doc.exists()) {
                 setMessages(doc.data().messages);
@@ -21,19 +19,14 @@ function DirectChatBox({ id ,user}) {
             }
         });
 
-
         return () => {
             unSub();
         };
     }, [id]);
 
-
     useEffect(() => {
         refBottom.current.scrollIntoView();
     }, [messages]);
-
-
-
 
     return (
         <Box h="full">
@@ -41,15 +34,20 @@ function DirectChatBox({ id ,user}) {
                 {loading ? (
                     <Spinner size="xl" />
                 ) : (
-                    messages.map((m, index) => (
-                        <Message
-                            key={m.id}
-                            message={m}
-                            profilePicURL={user?.profilePicURL}
-                        />
-                    ))
+                    messages.map((m, index) => {
+                        const previousMessageTime = index > 0 ? messages[index - 1].date : null;
+
+                        return (
+                            <Message
+                                key={m.id}
+                                message={m}
+                                profilePicURL={user?.profilePicURL}
+                                previousMessageTime={previousMessageTime}
+                            />
+                        );
+                    })
                 )}
-                <Box ref={refBottom}  />
+                <Box ref={refBottom} />
             </VStack>
         </Box>
     );

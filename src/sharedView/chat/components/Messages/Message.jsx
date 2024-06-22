@@ -4,8 +4,10 @@ import { useEffect, useRef } from "react";
 import {Avatar, Box, Flex, Text, Image, useColorMode, VStack} from "@chakra-ui/react";
 import { timeAgo } from "../../../../utils/timeAgo.js";
 import { Link } from "react-router-dom";
+import {messagesTime} from "../../../../utils/messagesTime.js";
+import {serverTimestamp} from "firebase/firestore";
 
-const Message = ({message,profilePicURL}) => {
+const Message = ({previousMessageTime,message,profilePicURL}) => {
     const authUser = useAuthStore((state) => state.user);
     const { colorMode } = useColorMode();
     const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
@@ -20,6 +22,9 @@ const Message = ({message,profilePicURL}) => {
     };
 
 
+    useEffect(() => {
+        console.log(previousMessageTime,message.date)
+    }, []);
 
     const isEmojiMessage = isEmojiOnly(message.text);
 
@@ -41,9 +46,15 @@ const Message = ({message,profilePicURL}) => {
                             {message.text}
                         </Text>
                     </Flex>
-                    <Text color={"gray.400"} fontSize={"xs"} alignSelf={isOwner ? "start" : "end"}>
-                        {timeAgo(message.date)}
-                    </Text>
+                    {
+                        message.date - previousMessageTime  > 3600000 &&
+                        <Text color={"gray"} fontSize={"xs"} alignSelf={isOwner? "start" : "end"}>
+                            {messagesTime(message.date)}
+                        </Text>
+                    }
+                    {/*<Text color={"gray"} fontSize={"xs"} alignSelf={isOwner ? "start" : "end"}>*/}
+                    {/*    {messagesTime(message.date)}*/}
+                    {/*</Text>*/}
 
                 </Flex>
 
@@ -98,9 +109,12 @@ const Message = ({message,profilePicURL}) => {
                         )}
                     </Box>
 
-                    <Text color={"gray.400"} fontSize={"xs"} alignSelf={isOwner ? "start" : "end"}>
-                        {timeAgo(message.date)}
-                    </Text>
+                    {
+                        message.date - previousMessageTime > 3600000 &&
+                        <Text color={"gray"} fontSize={"xs"} alignSelf={isOwner? "start" : "end"}>
+                            {messagesTime(message.date)}
+                        </Text>
+                    }
                 </Flex>
             </Flex>
         </>

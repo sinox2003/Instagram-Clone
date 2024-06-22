@@ -126,6 +126,7 @@ export const menuTheme = defineMultiStyleConfig({
     // sizes,
     defaultProps: {
         // define which size is applied by default
+
         size: 'lg',
     },
 });

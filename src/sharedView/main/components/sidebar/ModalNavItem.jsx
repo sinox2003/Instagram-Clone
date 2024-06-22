@@ -29,7 +29,7 @@ function ModalNavItem({name,icon}) {
                 <>
                     <Box  display={handleState('block',{base:'block',xl:'none'})}>
 
-                        <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={8} >
+                        <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={9} >
                             <IconButton    variant={{base:"styled",md:"ghost"}}  onClick={close && onOpen} py={6} px={3}      icon={ icon}  aria-label={name}/>
                         </Tooltip>
                     </Box>

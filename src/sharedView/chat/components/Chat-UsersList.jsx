@@ -48,7 +48,7 @@ function ChatUsersList() {
 
 
     return (
-        <VStack w={{ base: '119px', lg: '400px' }} display={{ base: 'none', md: 'flex' }} minW={{ base: '119px', lg: '400px' }} h={'100vh'} alignItems={'center'} borderRight={'1px'} borderColor={switchMode('whiteAlpha.300', 'blackAlpha.300')}>
+        <VStack w={{ base: '119px', lg: '400px' }} display={{ base: 'none', md: 'flex' }} minW={{ base: '119px', lg: '400px' }} h={'100dvh'} alignItems={'center'} borderRight={'1px'} borderColor={switchMode('whiteAlpha.300', 'blackAlpha.300')}>
             <HStack w={'full'} justifyContent={{ base: 'center', lg: 'space-between' }} pt={8} pb={2} px={6}>
                 <Text fontSize={'xl'} display={{ base: 'none', lg: '-webkit-box' }} sx={{ WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'270px'} fontWeight={'semibold'}>{authUser.username}</Text>
                 <IconButton aria-label={'New message'} variant='styled' icon={<PiNotePencilLight size={'27'} onClick={onOpen} strokeWidth={3} />} _active={{ color: 'gray' }} />

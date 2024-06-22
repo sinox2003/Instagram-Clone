@@ -68,12 +68,13 @@ function SidebarMenuButton() {
 
     return (
     display!=='base'?
-    <Box display={{base:'none',md:'block'}}>
+    <Box display={{base:'none',md:'block'}} >
         <Menu closeOnBlur={true}   isLazy={true}  lazyBehavior="unmount"  >
             {({ isOpen }) => (
                 <>
                     {triggerButton(isOpen)}
-                                                                                                      {/*  change ennouass with user  */}
+
+
                     <MenuList w={'270px'}  >
                         <MenuItem  fontSize={'14px'} py={4} onClick={()=>navigate(`/main/profile/${authUser.username}/liked`)} icon={<GoHeart size={21} />} >
                             Liked

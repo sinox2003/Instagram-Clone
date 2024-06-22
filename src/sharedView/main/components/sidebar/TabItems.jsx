@@ -10,7 +10,7 @@ import {CgAddR} from "react-icons/cg";
 import useDummyPosts from "../../../../hooks/useDummyPosts.jsx";
 import {useEffect, useState} from "react";
 import useAuthStore from "../../../../store/Backend-stores/authStore.js";
-import {HeartWithNotification} from "../../../../assets/constants.jsx";
+import {CreateLogo, HeartWithNotification} from "../../../../assets/constants.jsx";
 
 function TabItems() {
 
@@ -46,7 +46,8 @@ function TabItems() {
                     {/*</Box>*/}
 
 
-                    <ModalNavItem name='Create' icon={<CgAddR size={27} strokeWidth={0.05} />}    />
+                    {/*<ModalNavItem name='Create' icon={<CgAddR size={27} strokeWidth={0.05} />}    />*/}
+                    <ModalNavItem name='Create' icon={<CreateLogo     />}    />
 
 
                     <PathNavItem name='profile' path={`profile/${authUser.username}`} icon={ <Avatar src={ authUser?.profilePicURL} w='28px' h='28px'  />} filledIcon={ <Avatar src={ authUser?.profilePicURL} w='28px' h='28px' border={switchMode('white 2px solid ','black 2px solid  ')} />} />

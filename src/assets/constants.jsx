@@ -1,5 +1,10 @@
 import {Box, Icon} from '@chakra-ui/react'
 import {GoHeart} from "react-icons/go";
+import {IoIosAdd} from "react-icons/io";
+import {IoAdd, IoAddOutline} from "react-icons/io5";
+import React from "react";
+import {FaPlus} from "react-icons/fa";
+import {BsPlusLg} from "react-icons/bs";
 
 export const InstagramLogo = (props) => (
 	<Icon
@@ -63,3 +68,11 @@ export const HeartWithNotification = ({borderColor}) => {
 		</Box>
 	);
 };
+
+
+export const CreateLogo = () => (
+	<Box border={'2.4px solid'} borderRadius={'8px'} p={'1px'}>
+		<BsPlusLg size={'18px'} strokeWidth={'1px'} />
+
+	</Box>
+);
