@@ -38,15 +38,37 @@ function PathNavItem({path,name,icon,filledIcon}) {
 
                      <Box  display={handleState('block',{base:'block',xl:'none'})}>
 
-                         <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={9} >
-                             <IconButton    variant={{base:"styled",md:"ghost"}}   onClick={close}  px={3} py={6}     icon={isActive ? filledIcon : icon}  aria-label={name}/>
+                         <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={9}  >
+                             <IconButton    variant={{base:"styled",md:"ghost"}}   onClick={close}  px={3} py={6}     icon={isActive ? filledIcon : icon}  aria-label={name}
+                               _hover={{
+                                     svg: {
+                                         transform: 'scale(1.08)',
+                                         transition: 'transform 0.2s',
+                                     },
+                                 }}
+                                     css={{
+                                         'img': {
+                                             transition: 'transform 0.2s',
+                                         },
+                                         '&:hover img': {
+                                             transform: 'scale(1.05)',
+                                         },
+                                     }}
+                             />
                          </Tooltip>
                      </Box>
 
 
                      <Box  display={handleState('none' , {base: 'none', xl: 'block'})}
                            width={'full'}>
-                         <Button    variant={"ghost"} fontSize={'lg'} py={6} justifyContent={'flex-start'} pl={3}  width={'full'}  iconSpacing={4} fontWeight={isActive?'bold':'400'}  leftIcon={isActive ? filledIcon : icon}     >
+                         <Button    variant={"ghost"} fontSize={'lg'} py={6}  justifyContent={'flex-start'} pl={3}  width={'full'}  iconSpacing={4} fontWeight={isActive?'bold':'400'}  leftIcon={isActive ? filledIcon : icon}     css={{
+                             '.chakra-button__icon': {
+                                 transition: 'transform 0.2s',
+                             },
+                             '&:hover .chakra-button__icon': {
+                                 transform: 'scale(1.08)',
+                             },
+                         }}  >
                              {name}
                          </Button>
                      </Box>

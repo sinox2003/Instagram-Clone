@@ -41,12 +41,27 @@ function DrawerNavItem({name,icon,filledIcon}) {
         <>
             <Box  display={handleState('block',{base:'block',xl:'none'})}>
                 <Tooltip display={{base:'none',md:'block'}} label={name} bg={switchMode('#262626','white')} boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={2} placement='right'  p={2} borderRadius={9} >
-                    <IconButton   variant={{base:"styled",md:"ghost"}}  py={6} px={3}    onClick={isDrawerOpen?onClose:onOpen }    icon={isDrawerOpen ? filledIcon : icon}  aria-label={name}/>
+                    <IconButton   variant={{base:"styled",md:"ghost"}}  py={6} px={3}     onClick={isDrawerOpen?onClose:onOpen }    icon={isDrawerOpen ? filledIcon : icon}  aria-label={name}
+                          _hover={{
+
+                            svg: {
+                                transform: 'scale(1.08)',
+                                transition: 'transform 0.2s',
+                            },
+                        }}
+                    />
                 </Tooltip>
             </Box>
 
             <Box  display={handleState('none',{base:'none',xl:'block'})} width={'full'}>
-                <Button  fontSize={'lg'}  variant={"ghost"} py={6} justifyContent={'flex-start'} pl={3}    width={'full'} onClick={onOpen}   iconSpacing={4} fontWeight={'400'}  leftIcon={ icon}     >
+                <Button  fontSize={'lg'}  variant={"ghost"} py={6} justifyContent={'flex-start'} pl={3}    width={'full'} onClick={onOpen}   iconSpacing={4} fontWeight={'400'}  leftIcon={ icon}     css={{
+                    '.chakra-button__icon': {
+                        transition: 'transform 0.2s',
+                    },
+                    '&:hover .chakra-button__icon': {
+                        transform: 'scale(1.08)',
+                    },
+                }}  >
                     {name}
                 </Button>
             </Box>

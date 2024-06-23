@@ -71,6 +71,7 @@ export const HeartWithNotification = ({borderColor}) => {
 
 
 export const CreateLogo = () => (
+
 	<Box border={'2.4px solid'} borderRadius={'8px'} p={'1px'}>
 		<BsPlusLg size={'18px'} strokeWidth={'1px'} />
 
