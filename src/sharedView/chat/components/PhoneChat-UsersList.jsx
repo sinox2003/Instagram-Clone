@@ -52,7 +52,7 @@ function PhoneChatUsersList() {
                     <GoArrowLeft size={29} strokeWidth={0.2} />
                 </Link>
                 <Text fontSize={'xl'} fontWeight={'semibold'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'190px'}>{authUser.username}</Text>
-                <IconButton aria-label={'New message'} variant='styled' icon={<FiEdit size={'25'} onClick={onOpen} strokeWidth={3} />} _active={{ color: 'gray' }} />
+                <IconButton aria-label={'New message'} variant='styled' icon={<FiEdit size={'25'} onClick={onOpen} strokeWidth={1} />} _active={{ color: 'gray' }} />
             </HStack>
             <HStack w={'full'} px={4} pb={1}>
                 <Text fontSize={'md'} fontWeight={'bold'}>Messages</Text>
