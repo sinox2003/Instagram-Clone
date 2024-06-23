@@ -56,7 +56,7 @@ function PhoneChatUsersList() {
             <HStack w={'full'} px={4} pb={1}>
                 <Text fontSize={'md'} fontWeight={'bold'}>Messages</Text>
             </HStack>
-            <Box h={'calc(100svh - 100px)'}  w={'full'}>
+            <Box h={'calc(100dvh - 100px)'}  w={'full'}>
                 <VStack overflowY='scroll' h={'full'} pb={3} w={'full'} >
                     {
                         loading ?
