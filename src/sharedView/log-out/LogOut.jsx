@@ -28,8 +28,8 @@ function LogOut({isOpen, onClose}) {
                 isCentered
                 size={{base:'xs',md:'sm'}}
             >
-                <AlertDialogOverlay zIndex={2000} />
-                <Box zIndex={2000} pos={'relative'}>
+                <AlertDialogOverlay zIndex={3000} />
+                <Box zIndex={3000} pos={'relative'}>
                     <AlertDialogContent alignItems={'center'} borderRadius={17} overflow={'clip'}  bgColor={switchMode('#292929','white')}>
                         <Heading size={'md'} fontWeight={'semibold'} mb={2} mt={7}>Logging Out</Heading>
                         <Text mb={7} >You need to log back in.</Text>

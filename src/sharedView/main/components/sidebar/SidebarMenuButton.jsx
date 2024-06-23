@@ -82,7 +82,7 @@ function SidebarMenuButton() {
                         <MenuItem  fontSize={'14px'} py={4} onClick={()=>navigate(`/main/profile/${authUser.username}/saved`)} icon={<LiaBookmarkSolid  size={23} />} >
                             Saved
                         </MenuItem>
-                        <MenuItem fontSize={'14px'} py={4} onClick={toggleColorMode} icon={colorMode==='dark'?<FiMoon size={22}  />:<MdOutlineWbSunny size={23}  />}>
+                        <MenuItem fontSize={'14px'}  py={4} onClick={toggleColorMode} icon={colorMode==='dark'?<FiMoon size={22}  />:<MdOutlineWbSunny size={23}  />}>
                             Switch appearance
                         </MenuItem>
                         <MenuDivider />

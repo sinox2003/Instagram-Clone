@@ -65,6 +65,7 @@ function PathNavItem({path,name,icon,filledIcon}) {
                              '.chakra-button__icon': {
                                  transition: 'transform 0.2s',
                              },
+
                              '&:hover .chakra-button__icon': {
                                  transform: 'scale(1.08)',
                              },
