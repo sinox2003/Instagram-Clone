@@ -55,10 +55,23 @@ function SidebarMenuButton() {
     const triggerButton=(isOpen)=>{
       if(isSidebarMinimized ||isDrawerOpen || display==='md' ){
 
-            return  <MenuButton  as={IconButton}     variant={"ghost"}   px={3} py={6}     icon={isOpen ? <RxHamburgerMenu size={29} strokeWidth={1} />:<RxHamburgerMenu size={29} strokeWidth={0.5}/>} aria-label={name}/>
+            return  <MenuButton  as={IconButton}     variant={"ghost"}   px={3} py={6}     icon={isOpen ? <RxHamburgerMenu size={29} strokeWidth={1} />:<RxHamburgerMenu size={29} strokeWidth={0.5}/>} aria-label={name}  _hover={{
+
+                svg: {
+                    transform: 'scale(1.08)',
+                    transition: 'transform 0.2s',
+                },
+            }} />
 
         }else {
-            return   <MenuButton as={Button}  variant={"ghost"} py={6} iconSpacing={5}   pl={3} width={'full'}   textAlign={'start'} fontWeight={isOpen ? 'bolder':'400'}  leftIcon={isOpen ?<RxHamburgerMenu size={29} strokeWidth={1} />:<RxHamburgerMenu size={29} strokeWidth={0.5}/>}     >
+            return   <MenuButton as={Button}  variant={"ghost"} py={6} iconSpacing={5}   pl={3} width={'full'}   textAlign={'start'} fontWeight={isOpen ? 'bolder':'400'}  leftIcon={isOpen ?<RxHamburgerMenu size={29} strokeWidth={1} />:<RxHamburgerMenu size={29} strokeWidth={0.5}/>}     css={{
+                '.chakra-button__icon': {
+                    transition: 'transform 0.2s',
+                },
+                '&:hover .chakra-button__icon': {
+                    transform: 'scale(1.08)',
+                },
+            }}  >
                         More
                     </MenuButton>
 

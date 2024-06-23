@@ -61,7 +61,7 @@ function PathNavItem({path,name,icon,filledIcon}) {
 
                      <Box  display={handleState('none' , {base: 'none', xl: 'block'})}
                            width={'full'}>
-                         <Button    variant={"ghost"} fontSize={'lg'} py={6}  justifyContent={'flex-start'} pl={3}  width={'full'}  iconSpacing={4} fontWeight={isActive?'bold':'400'}  leftIcon={isActive ? filledIcon : icon}     css={{
+                         <Button    variant={"ghost"} fontSize={'lg'} py={6}   justifyContent={'flex-start'} pl={3}  width={'full'}  iconSpacing={4} fontWeight={isActive?'bold':'400'}  leftIcon={isActive ? filledIcon : icon}     css={{
                              '.chakra-button__icon': {
                                  transition: 'transform 0.2s',
                              },
