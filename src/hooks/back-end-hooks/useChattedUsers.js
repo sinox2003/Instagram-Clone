@@ -9,6 +9,7 @@ const useChattedUsers = (isOpen) => {
     const authUser = useAuthStore(state => state.user);
 
     useEffect(() => {
+        setLoading(true);
         if (!authUser.uid) return;
 
         const fetchUserDetails = async (uid) => {
@@ -17,7 +18,8 @@ const useChattedUsers = (isOpen) => {
         };
 
         const fetchChattedUsers = async () => {
-            setLoading(true);
+
+
 
             const unsub = onSnapshot(doc(firestore, "userChats", authUser.uid),
                 async (doc) => {
@@ -57,7 +59,11 @@ const useChattedUsers = (isOpen) => {
             };
         };
 
-        fetchChattedUsers();
+
+        if(isOpen){
+            fetchChattedUsers();
+
+        }
     }, [authUser.uid, isOpen]);
 
     const sortedChattedUsers = useMemo(() => {

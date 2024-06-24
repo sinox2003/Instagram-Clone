@@ -77,3 +77,14 @@ export const CreateLogo = () => (
 
 	</Box>
 );
+
+
+
+export const NewMessageIcon = (props) => (
+	<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+		<rect x="10" y="10" width="44" height="44" rx="8" ry="8"  strokeWidth="4" fill="none"/>
+		<path d="M20 40 L36 24 L44 32 L28 48 Z" />
+		<path d="M28 48 L20 40 L24 36 L36 48 Z" />
+	</svg>
+
+);
