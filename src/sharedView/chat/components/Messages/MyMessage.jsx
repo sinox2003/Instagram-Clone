@@ -49,14 +49,14 @@ const MyMessage = ({groupSize,index,message}) => {
                         />
 
                         {isLink ? (
-                            <Text py={2} px={3}>
+                            <Text py={1} px={3}>
                                 <Link style={{ textDecoration: 'underline' }} to={message.text}>
                                     {message.text}
                                 </Link>
                             </Text>
                         ) : (
                             message.text &&
-                            <Text py={2} px={3} fontSize={"md"}>
+                            <Text py={1} px={3} fontSize={"md"}>
                                 {message.text}
 
                             </Text>
