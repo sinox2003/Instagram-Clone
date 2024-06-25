@@ -63,8 +63,30 @@ function DirectChatInput({user,chatId}) {
         }
     };
 
-    const handleHeart = () => {
-        setMessage("❤️");
+    const handleHeart = async () => {
+        setIsLoading(true)
+        const newMessage = {
+            id: v4(),
+            text: "❤️" ,
+            senderId: authUser.uid,
+            date: Date.now(),
+        };
+
+        await updateDoc(doc(firestore, "chats", chatId), {
+            messages: arrayUnion(newMessage),
+        });
+
+        await Promise.all([
+            updateDoc(doc(firestore, "userChats", authUser.uid), {
+                [`${chatId}.lastMessage`]: { text:"❤️" },
+                [`${chatId}.date`]: serverTimestamp(),
+            }),
+            updateDoc(doc(firestore, "userChats", user.uid), {
+                [`${chatId}.lastMessage`]: { text:"❤️"},
+                [`${chatId}.date`]: serverTimestamp(),
+            }),
+        ]);
+        setIsLoading(false)
     };
 
     const handleOnClick = () => {
@@ -74,9 +96,7 @@ function DirectChatInput({user,chatId}) {
     };
 
     useEffect(() => {
-        if (message === "❤️") {
-            handleSend();
-        }
+
         if (image || message) {
             setShowPost(true);
         }else {
@@ -192,7 +212,7 @@ function DirectChatInput({user,chatId}) {
                         value={message}
                         variant="unstyled"
                         fontSize="sm"
-                        placeholder="Message..."
+                        placeholder="MyMessage..."
                     />
                     {showPost ? (
                         isLoading ?

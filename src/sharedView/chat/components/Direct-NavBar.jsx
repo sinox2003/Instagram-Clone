@@ -41,13 +41,13 @@ function DirectNavBar({user,chatId,isLoading}) {
                         {
                             isLoading ?
                                 <>
-                                    <SkeletonCircle  w={'44px'} h={'44px'} />
-                                    <Skeleton  h={'18px'} borderRadius={'lg'} w={'200px'} />
+                                    <SkeletonCircle startColor={switchMode('whiteAlpha.100','blackAlpha.100')} endColor={switchMode('whiteAlpha.300','blackAlpha.300')} w={'44px'} h={'44px'} />
+                                    <Skeleton startColor={switchMode('whiteAlpha.100','blackAlpha.100')} endColor={switchMode('whiteAlpha.300','blackAlpha.300')} h={'18px'} borderRadius={'lg'} w={'200px'} />
                                 </>
                                 :
                                 <>
                                     <Avatar w={'44px'} h={'44px'} onClick={checkUser} src={user?.profilePicURL} cursor={'pointer'} />
-                                    <Text fontWeight={'semibold'} onClick={checkUser} cursor={'pointer'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'200px'} >{user?.username}</Text>
+                                    <Text fontWeight={'semibold'} onClick={checkUser} cursor={'pointer'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'300px'} >{user?.username}</Text>
                                 </>
                         }
 
@@ -68,8 +68,8 @@ function DirectNavBar({user,chatId,isLoading}) {
                         {
                             isLoading ?
                                 <>
-                                    <SkeletonCircle  w={'24px'} h={'24px'} />
-                                    <Skeleton  h={'16px'} borderRadius={'lg'} w={'170px'} />
+                                    <SkeletonCircle startColor={switchMode('whiteAlpha.100','blackAlpha.100')} endColor={switchMode('whiteAlpha.300','blackAlpha.300')}  w={'24px'} h={'24px'} />
+                                    <Skeleton startColor={switchMode('whiteAlpha.100','blackAlpha.100')} endColor={switchMode('whiteAlpha.300','blackAlpha.300')} h={'16px'} borderRadius={'lg'} w={'170px'} />
                                 </>
                                 :
                                 <>

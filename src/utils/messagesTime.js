@@ -12,14 +12,8 @@ export const messagesTime = (timestamp) => {
     const dayOfWeek = daysOfWeek[date.getDay()];
     const formattedTime = `${hours}:${minutes}`;
 
-    if (secondsAgo < 60) {
-        return `${secondsAgo}s`;
-    } else if (secondsAgo < 3600) {
-        const minutesAgo = Math.floor(secondsAgo / 60);
-        return `${minutesAgo}m`;
-    } else if (secondsAgo < 86400) {
-        const hoursAgo = Math.floor(secondsAgo / 3600);
-        return `${hoursAgo}h`;
+     if (secondsAgo < 86400) {
+        return formattedTime; // Return the time in hh:mm format
     } else if (secondsAgo < 604800) {
         return `${dayOfWeek} ${formattedTime}`;
     } else {
