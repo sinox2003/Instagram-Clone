@@ -1,5 +1,5 @@
 
-import {Box, Flex, HStack, IconButton, Image, Text, Tooltip, useColorMode, VStack} from "@chakra-ui/react";
+import {Box, Center, Flex, HStack, IconButton, Image, Text, Tooltip, useColorMode, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import {SlOptionsVertical} from "react-icons/sl";
 import {HiOutlineDotsVertical} from "react-icons/hi";
@@ -39,11 +39,18 @@ const MyMessage = ({groupSize,index,message}) => {
 
                 {
                     showMore &&
-                    <Tooltip display={{base:'none',md:'block'}}  label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
+                    <>
+                        <Center display={{base:'none',md:'block'}}>
+                            <Tooltip   label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
 
-                        <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}  />
+                                <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}   />
 
-                    </Tooltip>
+                            </Tooltip>
+                        </Center>
+                        <Center display={{base:'block',md:'none'}}>
+                            <HiOutlineDotsVertical size={14} color={switchMode("white",'black')}  />
+                        </Center>
+                    </>
 
                 }
             </VStack>
@@ -83,11 +90,18 @@ const MyMessage = ({groupSize,index,message}) => {
                         </Box>
                     {
                         showMore &&
-                            <Tooltip display={{base:'none',md:'block'}}  label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
+                        <>
+                            <Center display={{base:'none',md:'block'}}>
+                                <Tooltip   label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
 
-                                <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}  />
+                                    <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}   />
 
-                            </Tooltip>
+                                </Tooltip>
+                            </Center>
+                            <Center display={{base:'block',md:'none'}}>
+                                <HiOutlineDotsVertical size={14} color={switchMode("white",'black')}  />
+                            </Center>
+                        </>
 
                     }
 

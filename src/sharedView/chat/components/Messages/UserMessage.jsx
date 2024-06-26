@@ -1,5 +1,5 @@
 import useAuthStore from "../../../../store/Backend-stores/authStore.js";
-import {Box, Flex, IconButton, Image, Text, Tooltip, useColorMode, VStack} from "@chakra-ui/react";
+import {Box, Center, Flex, IconButton, Image, Text, Tooltip, useColorMode, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import {HiOutlineDotsVertical} from "react-icons/hi";
 import {useState} from "react";
@@ -35,11 +35,18 @@ const UserMessage = ({groupSize,index,message}) => {
                 </Text>
                 {
                     showMore &&
-                    <Tooltip display={{base:'none',md:'block'}}  label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
+                    <>
+                        <Center display={{base:'none',md:'block'}}>
+                            <Tooltip   label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
 
-                        <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}  />
+                                <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}   />
 
-                    </Tooltip>
+                            </Tooltip>
+                        </Center>
+                        <Center display={{base:'block',md:'none'}}>
+                            <HiOutlineDotsVertical size={14} color={switchMode("white",'black')}  />
+                        </Center>
+                    </>
 
                 }
 
@@ -53,7 +60,7 @@ const UserMessage = ({groupSize,index,message}) => {
 
 
 
-            <VStack w={'full'} flexDir="row" spacing={1} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+            <VStack w={'full'} flexDir="row" spacing={1} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} onTouchStart={()=>console.log("dsds")} >
 
                 <Box background={ !message.text  ? "transparent"  : switchMode("#262626", "#EFEFEF") } color={ switchMode("white", "black") }   borderRadius={oneMessage ? "20px" : firstMessage ? "20px 20px 20px 5px " : lastMessage ? " 5px  20px  20px 20px" :" 5px 20px 20px 5px" } w={"max-content"} maxW={{ base: "200px", md: "300px" }}>
                     <Image
@@ -81,11 +88,18 @@ const UserMessage = ({groupSize,index,message}) => {
                 </Box>
                 {
                     showMore &&
-                    <Tooltip display={{base:'none',md:'block'}}  label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
+                    <>
+                        <Center display={{base:'none',md:'block'}}>
+                            <Tooltip   label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
 
-                        <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}  />
+                                <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}   />
 
-                    </Tooltip>
+                            </Tooltip>
+                        </Center>
+                        <Center display={{base:'block',md:'none'}}>
+                            <HiOutlineDotsVertical size={14} color={switchMode("white",'black')}  />
+                        </Center>
+                    </>
 
                 }
 
