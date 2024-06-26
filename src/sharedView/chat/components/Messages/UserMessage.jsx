@@ -29,7 +29,7 @@ const UserMessage = ({groupSize,index,message}) => {
     if (isEmojiMessage) {
 
         return (
-            <VStack w={'full'} flexDir="row" onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+            <VStack w={'full'} flexDir="row" spacing={0} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
                 <Text  fontSize={"50px"}>
                     {message.text}
                 </Text>
@@ -53,7 +53,7 @@ const UserMessage = ({groupSize,index,message}) => {
 
 
 
-            <VStack w={'full'} flexDir="row" onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+            <VStack w={'full'} flexDir="row" spacing={1} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
 
                 <Box background={ !message.text  ? "transparent"  : switchMode("#262626", "#EFEFEF") } color={ switchMode("white", "black") }   borderRadius={oneMessage ? "20px" : firstMessage ? "20px 20px 20px 5px " : lastMessage ? " 5px  20px  20px 20px" :" 5px 20px 20px 5px" } w={"max-content"} maxW={{ base: "200px", md: "300px" }}>
                     <Image

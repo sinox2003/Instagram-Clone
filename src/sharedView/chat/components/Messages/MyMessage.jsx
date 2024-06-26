@@ -31,7 +31,7 @@ const MyMessage = ({groupSize,index,message}) => {
 
         return (
 
-            <VStack w={'full'} flexDir= "row-reverse" spacing={1} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+            <VStack w={'full'} flexDir= "row-reverse" spacing={0} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
 
                     <Text  fontSize={"50px"}>
                         {message.text}

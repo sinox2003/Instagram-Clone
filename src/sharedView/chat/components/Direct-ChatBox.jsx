@@ -89,7 +89,7 @@ function DirectChatBox({ id, user }) {
 
                                     <HStack alignItems="end" w="full">
                                         <Avatar src={user?.profilePicURL} size="sm" />
-                                        <VStack w="f null" spacing={'3px'}>
+                                        <VStack w="full" spacing={'3px'}>
                                             {group.map((m,index) => (
                                                 <UserMessage key={index} groupSize={group.length} index={index} message={m} />
                                             ))}
