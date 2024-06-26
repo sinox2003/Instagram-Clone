@@ -1,10 +1,13 @@
 import useAuthStore from "../../../../store/Backend-stores/authStore.js";
-import {Box, Flex, Image, Text, useColorMode, VStack} from "@chakra-ui/react";
+import {Box, Flex, IconButton, Image, Text, Tooltip, useColorMode, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
+import {HiOutlineDotsVertical} from "react-icons/hi";
+import {useState} from "react";
 
 const UserMessage = ({groupSize,index,message}) => {
     const { colorMode } = useColorMode();
     const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
+    const [showMore, setShowMore] = useState(false)
 
 
     const isLink = message.text.startsWith('http');
@@ -26,10 +29,20 @@ const UserMessage = ({groupSize,index,message}) => {
     if (isEmojiMessage) {
 
         return (
-            <VStack w={'full'} flexDir="row"  >
+            <VStack w={'full'} flexDir="row" onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
                 <Text  fontSize={"50px"}>
                     {message.text}
                 </Text>
+                {
+                    showMore &&
+                    <Tooltip display={{base:'none',md:'block'}}  label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
+
+                        <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}  />
+
+                    </Tooltip>
+
+                }
+
             </VStack>
 
         )
@@ -40,7 +53,7 @@ const UserMessage = ({groupSize,index,message}) => {
 
 
 
-            <VStack w={'full'} flexDir="row"  >
+            <VStack w={'full'} flexDir="row" onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
 
                 <Box background={ !message.text  ? "transparent"  : switchMode("#262626", "#EFEFEF") } color={ switchMode("white", "black") }   borderRadius={oneMessage ? "20px" : firstMessage ? "20px 20px 20px 5px " : lastMessage ? " 5px  20px  20px 20px" :" 5px 20px 20px 5px" } w={"max-content"} maxW={{ base: "200px", md: "300px" }}>
                     <Image
@@ -66,6 +79,16 @@ const UserMessage = ({groupSize,index,message}) => {
                         </Text>
                     )}
                 </Box>
+                {
+                    showMore &&
+                    <Tooltip display={{base:'none',md:'block'}}  label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
+
+                        <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}  />
+
+                    </Tooltip>
+
+                }
+
 
             </VStack>
 

@@ -15,6 +15,13 @@ function DirectChatBox({ id, user }) {
     const { inView, ref } = useInView();
     const authUser = useAuthStore((state) => state.user);
 
+
+    useEffect(() => {
+
+        refBottom.current.scrollIntoView({  });
+
+    }, [messages]);
+
     useEffect(() => {
         const unSub = onSnapshot(doc(firestore, "chats", id), (doc) => {
             if (doc.exists()) {
@@ -27,11 +34,7 @@ function DirectChatBox({ id, user }) {
         };
     }, [id]);
 
-    useEffect(() => {
-        if (refBottom.current) {
-            refBottom.current.scrollIntoView({  });
-        }
-    }, [messages]);
+
 
     const groupMessagesBySender = (messages) => {
         const groupedMessages = [];
@@ -75,7 +78,7 @@ function DirectChatBox({ id, user }) {
                                 )}
                                 {
                                     group[0].senderId === authUser.uid ? (
-                                    <VStack w="full" spacing={'2px'}>
+                                    <VStack w="full" spacing={'3px'}>
                                         {group.map((m,index) => (
 
                                             <MyMessage key={index} groupSize={group.length} index={index} message={m} />
@@ -86,7 +89,7 @@ function DirectChatBox({ id, user }) {
 
                                     <HStack alignItems="end" w="full">
                                         <Avatar src={user?.profilePicURL} size="sm" />
-                                        <VStack w="f null" spacing={'2px'}>
+                                        <VStack w="f null" spacing={'3px'}>
                                             {group.map((m,index) => (
                                                 <UserMessage key={index} groupSize={group.length} index={index} message={m} />
                                             ))}
