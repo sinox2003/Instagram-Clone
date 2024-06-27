@@ -1,8 +1,7 @@
-import useAuthStore from "../../../../store/Backend-stores/authStore.js";
-import {Box, Center, Flex, IconButton, Image, Text, Tooltip, useColorMode, VStack} from "@chakra-ui/react";
+import {Box, Image, Text, useColorMode, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
-import {HiOutlineDotsVertical} from "react-icons/hi";
 import {useState} from "react";
+import MessageMore from "./MessageMore.jsx";
 
 const UserMessage = ({groupSize,index,message}) => {
     const { colorMode } = useColorMode();
@@ -35,18 +34,7 @@ const UserMessage = ({groupSize,index,message}) => {
                 </Text>
                 {
                     showMore &&
-                    <>
-                        <Center display={{base:'none',md:'block'}}>
-                            <Tooltip   label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
-
-                                <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}   />
-
-                            </Tooltip>
-                        </Center>
-                        <Center display={{base:'block',md:'none'}}>
-                            <HiOutlineDotsVertical size={14} color={switchMode("white",'black')}  />
-                        </Center>
-                    </>
+                        <MessageMore />
 
                 }
 
@@ -88,18 +76,7 @@ const UserMessage = ({groupSize,index,message}) => {
                 </Box>
                 {
                     showMore &&
-                    <>
-                        <Center display={{base:'none',md:'block'}}>
-                            <Tooltip   label={"More"} bg={switchMode('#262626','white')} hasArrow  boxShadow={switchMode("none",'xs')} color={switchMode("white",'black')}  m={3} placement='top'  p={2} borderRadius={9} >
-
-                                <IconButton aria-label={"More"} icon={ <HiOutlineDotsVertical size={14} color={switchMode("white",'black')} />}  variant={'link'}   />
-
-                            </Tooltip>
-                        </Center>
-                        <Center display={{base:'block',md:'none'}}>
-                            <HiOutlineDotsVertical size={14} color={switchMode("white",'black')}  />
-                        </Center>
-                    </>
+                        <MessageMore />
 
                 }
 

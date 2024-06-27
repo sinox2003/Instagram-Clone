@@ -82,13 +82,13 @@ function SharePostModal() {
                         [user.chatId + ".lastMessage"]: {
                             text: "you sent an attachment",
                         },
-                        [user.chatId + ".date"]: serverTimestamp(),
+                        [user.chatId + ".date"]:Date.now(),
                     });
                     await updateDoc(doc(firestore, "userChats", user.uid), {
                         [user.chatId + ".lastMessage"]: {
                             text: `${authUser.username} sent an attachment`,
                         },
-                        [user.chatId + ".date"]: serverTimestamp(),
+                        [user.chatId + ".date"]:Date.now(),
                     });
                 })
 

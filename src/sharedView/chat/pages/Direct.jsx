@@ -40,12 +40,12 @@ function Direct() {
 
     return (
 
-        <VStack w={'full'} h={'full'} zIndex={'3000'}>
+        <VStack w={'full'} h={'full'} spacing={{base:0,md:'inherit'}} zIndex={'3000'}>
             <Box w={'full'} >
                 <DirectNavBar user={userProfile} chatId={id} isLoading={isUserLoading} />
             </Box>
 
-            <Box w={'full'}  h={{base:'calc(100% - 137px)',md:'calc(100% - 153px)'}} minH={{base:'calc(100% - 237px)',md:'calc(100% - 253px)'}} >
+            <Box w={'full'}  h={{base:'calc(100% - 100px)',md:'calc(100% - 153px)'}} minH={{base:'calc(100% - 237px)',md:'calc(100% - 253px)'}} >
                 <DirectChatBox id={id} user={userProfile} />
             </Box>
 

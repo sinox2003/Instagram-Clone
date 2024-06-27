@@ -65,7 +65,7 @@ function ChatUsersList() {
                         ))
                         :
                         sortedChats.map((chat) => (
-                            <ChatUserItem key={chat[0]} myId={authUser.uid} userId={chat[1].userInfo.uid} lastMessage={chat[1].lastMessage?.text} />
+                            <ChatUserItem key={chat[0]} myId={authUser.uid} userId={chat[1].userInfo.uid} date={chat[1].date} lastMessage={chat[1].lastMessage?.text} />
                         ))
                 }
             </VStack>

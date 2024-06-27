@@ -144,11 +144,11 @@ function DirectChatInput({user,chatId}) {
         await Promise.all([
             updateDoc(doc(firestore, "userChats", authUser.uid), {
                 [`${chatId}.lastMessage`]: { text:message || "you sent a photo" },
-                [`${chatId}.date`]: serverTimestamp(),
+                [`${chatId}.date`]: Date.now(),
             }),
             updateDoc(doc(firestore, "userChats", user.uid), {
                 [`${chatId}.lastMessage`]: { text:message || `${authUser.username } sent a photo`},
-                [`${chatId}.date`]: serverTimestamp(),
+                [`${chatId}.date`]: Date.now(),
             }),
         ]);
 
@@ -159,7 +159,7 @@ function DirectChatInput({user,chatId}) {
     };
 
     return (
-        <Box px={4} py={"15px"}>
+        <Box px={{base:3,md:4}} py={{base:"10px",md:'15px'}}>
             <Box
                 border={"1px"}
                 alignItems={"center"}

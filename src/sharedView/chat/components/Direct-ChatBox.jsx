@@ -60,7 +60,7 @@ function DirectChatBox({ id, user }) {
 
     return (
         <Box h="full">
-            <VStack overflowY="scroll" ref={ref} spacing={1} p={{ base: 3, md: 4 }} h="full">
+            <VStack overflowY="scroll" ref={ref} spacing={1} px={{ base: 3, md: 4 }} h="full">
                 {loading ? (
                     <Spinner size="xl" />
                 ) : (

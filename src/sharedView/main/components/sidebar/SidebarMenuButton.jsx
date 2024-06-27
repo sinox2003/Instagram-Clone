@@ -26,9 +26,13 @@ function SidebarMenuButton() {
 
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const {colorMode,toggleColorMode}=useColorMode()
+
 
     const {isSidebarMinimized,isDrawerOpen} = useToggleSidebar();
+
+    const { colorMode,toggleColorMode } = useColorMode();
+
+    const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
 
     const navigate=useNavigate()
 
@@ -52,31 +56,75 @@ function SidebarMenuButton() {
         }
     )
 
-    const triggerButton=(isOpen)=>{
-      if(isSidebarMinimized ||isDrawerOpen || display==='md' ){
+    const triggerButton = (isOpen) => {
+        if (isSidebarMinimized || isDrawerOpen || display === 'md') {
+            return (
+                <MenuButton
+                    as={IconButton}
+                    variant={"ghost"}
+                    px={3}
+                    py={6}
+                    icon={
+                        isOpen ? (
+                            <RxHamburgerMenu size={29} strokeWidth={1} />
+                        ) : (
+                            <RxHamburgerMenu size={29} strokeWidth={0.5} />
+                        )
+                    }
+                    aria-label={name}
+                    _hover={{
+                        bg: switchMode('whiteAlpha.200', 'blackAlpha.100'),
+                        svg: {
+                            transform: 'scale(1.08)',
+                            transition: 'transform 0.2s',
+                        },
+                    }}
+                    _active={{
+                        bg: switchMode('whiteAlpha.200', 'blackAlpha.100'),
+                    }}
 
-            return  <MenuButton  as={IconButton}     variant={"ghost"}   px={3} py={6}     icon={isOpen ? <RxHamburgerMenu size={29} strokeWidth={1} />:<RxHamburgerMenu size={29} strokeWidth={0.5}/>} aria-label={name}  _hover={{
+                />
+            );
+        } else {
+            return (
+                <MenuButton
+                    as={Button}
+                    variant={"ghost"}
+                    py={6}
+                    iconSpacing={5}
+                    pl={3}
+                    width={'full'}
+                    textAlign={'start'}
+                    fontWeight={isOpen ? 'bolder' : '400'}
+                    leftIcon={
+                        isOpen ? (
+                            <RxHamburgerMenu size={29} strokeWidth={1} />
+                        ) : (
+                            <RxHamburgerMenu size={29} strokeWidth={0.5} />
+                        )
+                    }
+                    _hover={{
+                        bg: switchMode('whiteAlpha.200', 'blackAlpha.100'),
+                    }}
+                    _active={{
+                        bg: switchMode('whiteAlpha.200', 'blackAlpha.100'),
+                    }}
 
-                svg: {
-                    transform: 'scale(1.08)',
-                    transition: 'transform 0.2s',
-                },
-            }} />
-
-        }else {
-            return   <MenuButton as={Button}  variant={"ghost"} py={6} iconSpacing={5}   pl={3} width={'full'}   textAlign={'start'} fontWeight={isOpen ? 'bolder':'400'}  leftIcon={isOpen ?<RxHamburgerMenu size={29} strokeWidth={1} />:<RxHamburgerMenu size={29} strokeWidth={0.5}/>}     css={{
-                '.chakra-button__icon': {
-                    transition: 'transform 0.2s',
-                },
-                '&:hover .chakra-button__icon': {
-                    transform: 'scale(1.08)',
-                },
-            }}  >
-                        More
-                    </MenuButton>
-
+                    css={{
+                        '.chakra-button__icon': {
+                            transition: 'transform 0.2s',
+                        },
+                        '&:hover .chakra-button__icon': {
+                            transform: 'scale(1.08)',
+                        },
+                    }}
+                >
+                    More
+                </MenuButton>
+            );
         }
-    }
+    };
+
 
 
     return (

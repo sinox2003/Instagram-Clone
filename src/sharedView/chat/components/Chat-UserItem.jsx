@@ -4,8 +4,11 @@ import {useEffect, useState} from "react";
 import useChatStore from "../../../store/Backend-stores/chatStore.js";
 import useGetUserProfileById from "../../../hooks/back-end-hooks/useGetUserProfileById.js";
 import ChatUserItemSkeleton from "./Chat-UserItemSkeleton.jsx";
+import {postTimeAgo} from "../../../utils/postTimeAgo.js";
+import {messagesTime} from "../../../utils/messagesTime.js";
+import {timeAgo} from "../../../utils/timeAgo.js";
 
-function ChatUserItem({userId,myId,lastMessage}) {
+function ChatUserItem({userId,myId,date,lastMessage}) {
 
     const {colorMode}=useColorMode()
     const switchMode=(dark,light)=>(colorMode==='dark'?dark:light)
@@ -16,6 +19,7 @@ function ChatUserItem({userId,myId,lastMessage}) {
 
     useEffect(() => {
         getUserProfile(userId)
+
     }, []);
 
     useEffect(() => {
@@ -45,9 +49,15 @@ function ChatUserItem({userId,myId,lastMessage}) {
                     <Text fontSize={'15px'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'240px'} >
                         {userProfile?.username}
                     </Text>
-                    <Text fontSize={'xs'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'} color={'#bdbdbd'}>
-                        {lastMessage}
-                    </Text>
+
+                        <Text fontSize={'xs'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'} color={'#bdbdbd'}>
+                            {lastMessage &&
+                                `${lastMessage} • ${timeAgo(date)}`
+                            }
+                        </Text>
+
+
+
                 </Flex>
             </HStack>
         </HStack>
