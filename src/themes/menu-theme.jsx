@@ -71,7 +71,6 @@ const xl = defineStyle({
 });
 
 const sm = defineStyle({
-    width: '180px',
     fontSize: 'xs',
     my: '0',
     py:'2'
@@ -94,7 +93,7 @@ const sizes = {
         item: sm,
         list: {
             minW: '180px',
-
+            m: '2',
             borderRadius: '2xl',
         },
         groupTitle: sm,
