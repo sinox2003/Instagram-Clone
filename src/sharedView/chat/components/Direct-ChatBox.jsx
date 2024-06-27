@@ -62,7 +62,10 @@ function DirectChatBox({ id, user }) {
         <Box h="full">
             <VStack overflowY="scroll" ref={ref} spacing={1} px={{ base: 3, md: 4 }} h="full">
                 {loading ? (
-                    <Spinner size="xl" />
+                    <Center h={'full'}>
+                        <Spinner size="xl" />
+                    </Center>
+
                 ) : (
                     groupedMessages.map((group, groupIndex) => {
                         const showTimestamp = groupIndex === 0 || group[0].date - groupedMessages[groupIndex - 1][0].date >= 1800000;

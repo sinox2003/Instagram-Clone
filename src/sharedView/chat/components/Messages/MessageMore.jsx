@@ -22,7 +22,7 @@ function MessageMore(props) {
 
 
 
-        <Menu closeOnBlur={false}  closeOnSelect={false}  >
+        <Menu closeOnBlur={false}  closeOnSelect={false} size={'sm'} >
             <Tooltip
                 label="More"
                 bg={switchMode('#262626', 'white')}
@@ -42,8 +42,7 @@ function MessageMore(props) {
                 />
             </Tooltip>
             <MenuList
-                m={'2'}
-                sx={{ minW: '180px' }}
+
             >
                 <MenuItem>Item 1</MenuItem>
                 <MenuItem>Item 2</MenuItem>

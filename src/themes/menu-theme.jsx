@@ -93,7 +93,7 @@ const sizes = {
     sm: definePartsStyle({
         item: sm,
         list: {
-
+            minW: '180px',
 
             borderRadius: '2xl',
         },
