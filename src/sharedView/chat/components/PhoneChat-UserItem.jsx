@@ -46,7 +46,7 @@ function PhoneChatUserItem({userId,myId,lastMessage,date}) {
                             {/*<AvatarBadge boxSize='1em' bottom={1} right={1} borderColor={switchMode('black','white')} bg='#19D14F' />*/}
                         </Avatar>
                         <Flex w={'full'} direction={'column'} >
-                            <Text fontSize={'15px'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'calc(100% - 60px)'} >
+                            <Text fontSize={'15px'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'calc(100% - 40px)'} >
                                 {userProfile?.username}
                             </Text>
                             {/*<Text fontSize={'xs'} color={'#bdbdbd'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'}>*/}
