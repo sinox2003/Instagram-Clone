@@ -15,7 +15,6 @@ import {MdOutlineWbSunny} from "react-icons/md";
 import {FiMoon} from "react-icons/fi";
 import {RxHamburgerMenu} from "react-icons/rx";
 import useToggleSidebar from "../../../../hooks/useToggleSidebar.jsx";
-import {BiLogOut} from "react-icons/bi";
 import LogOut from "../../../log-out/LogOut.jsx";
 import {useNavigate} from "react-router-dom";
 import {LiaBookmarkSolid} from "react-icons/lia";

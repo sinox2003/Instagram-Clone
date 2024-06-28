@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
-import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import {arrayRemove, arrayUnion, doc, updateDoc} from "firebase/firestore";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
 import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
 import useShowToast from "../useShowToast.jsx";

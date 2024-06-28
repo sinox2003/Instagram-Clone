@@ -1,10 +1,10 @@
-import { Box, VStack } from "@chakra-ui/react";
+import {Box, VStack} from "@chakra-ui/react";
 import ProfileNavBar from "../components/ProfileNavBar.jsx";
 import ProfileHeader from "../components/ProfileHeader.jsx";
 import useToggleSidebar from "../../../hooks/useToggleSidebar.jsx";
-import { useEffect } from "react";
+import {useEffect} from "react";
 import ProfileTabs from "../components/ProfileTabs.jsx";
-import { useNavigate, useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import NotFoundPage from "../../error-pages/NotFoundPage.jsx";
 import ProgressLoader from "../../loading-pages/ProgressLoader.jsx";
 import UseGetUserByUsernameRealTime from "../../../hooks/back-end-hooks/useGetUserByUsername-RealTime.js";

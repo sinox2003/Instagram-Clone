@@ -1,8 +1,8 @@
 import useAuthStore from "../../store/Backend-stores/authStore.js";
-import { useState } from "react";
+import {useState} from "react";
 import useShowToast from "../useShowToast.jsx";
-import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { firestore } from "../../config/firebase.js";
+import {arrayRemove, arrayUnion, doc, updateDoc} from "firebase/firestore";
+import {firestore} from "../../config/firebase.js";
 
 const useLikePost = (post, id) => {
     const authUser = useAuthStore((state) => state.user);

@@ -1,8 +1,6 @@
-
-import {Avatar, Box, Button, HStack, SkeletonCircle, SkeletonText, Spacer, Text, useColorMode} from "@chakra-ui/react";
+import {Avatar, Box, Button, HStack, Spacer, Text, useColorMode} from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom";
-import useDummyPosts from "../../../hooks/useDummyPosts.jsx";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import useFollowUser from "../../../hooks/back-end-hooks/useFollowUser.js";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 

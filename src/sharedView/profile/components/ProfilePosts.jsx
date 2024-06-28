@@ -1,10 +1,10 @@
-import { Box, Center, Grid, Heading, Spinner, Text, VStack } from "@chakra-ui/react";
-import { HiOutlineCamera } from "react-icons/hi";
-import { useParams } from "react-router-dom";
+import {Box, Center, Grid, Heading, Spinner, Text, VStack} from "@chakra-ui/react";
+import {HiOutlineCamera} from "react-icons/hi";
+import {useParams} from "react-router-dom";
 import ProfilePost from "./ProfilePost.jsx";
 import useGetUserPosts from "../../../hooks/back-end-hooks/useGetUserPosts.js";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 
 function ProfilePosts() {

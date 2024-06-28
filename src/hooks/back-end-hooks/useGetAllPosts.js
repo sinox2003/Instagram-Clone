@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import {collection, getDocs, limit,startAfter, orderBy, query} from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {collection, getDocs, limit, orderBy, query, startAfter} from "firebase/firestore";
 import usePostStore from "../../store/Backend-stores/postStore.js";
 import useShowToast from "../useShowToast.jsx";
-import { firestore } from "../../config/firebase.js";
+import {firestore} from "../../config/firebase.js";
 
 const useGetAllPosts = () => {
     const [isLoading, setIsLoading] = useState(true);

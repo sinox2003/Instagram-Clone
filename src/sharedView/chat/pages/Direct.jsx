@@ -1,11 +1,10 @@
-import {Box, Center, Heading, useColorMode, VStack} from "@chakra-ui/react";
+import {Box, Heading, useColorMode, VStack} from "@chakra-ui/react";
 import DirectNavBar from "../components/Direct-NavBar.jsx";
 import DirectChatBox from "../components/Direct-ChatBox.jsx";
 import DirectChatInput from "../components/Direct-ChatInput.jsx";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import {useEffect} from "react";
-import useChatStore from "../../../store/Backend-stores/chatStore.js";
 import useGetUserProfileById from "../../../hooks/back-end-hooks/useGetUserProfileById.js";
 
 

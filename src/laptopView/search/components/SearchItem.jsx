@@ -1,4 +1,4 @@
-import {Avatar, Box, HStack, SkeletonCircle, SkeletonText, Text, useColorMode} from "@chakra-ui/react";
+import {Avatar, Box, HStack, Text, useColorMode} from "@chakra-ui/react";
 
 import {useNavigate} from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TabPanel, TabPanels, Tabs, useColorMode} from "@chakra-ui/react";
+import {TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import UploadImageTab from "./tabs/UploadImage-tab.jsx";
 import ImageCropTab from "./tabs/ImageCrop-Tab.jsx";
 import ImageEditTab from "./tabs/ImageEdit-Tab.jsx";

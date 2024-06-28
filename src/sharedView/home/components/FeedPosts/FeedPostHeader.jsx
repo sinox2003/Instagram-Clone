@@ -3,7 +3,6 @@ import {TbDots} from "react-icons/tb";
 import {useNavigate} from "react-router-dom";
 
 import useFeedPostOptions from "../../../../hooks/useFeedPostOptions.jsx";
-import {useEffect} from "react";
 import {postTimeAgo} from "../../../../utils/postTimeAgo.js";
 
 function FeedPostHeader({post,user}) {

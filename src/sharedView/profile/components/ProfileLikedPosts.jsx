@@ -1,6 +1,5 @@
 import {useEffect} from 'react';
-import useDummyPosts from "../../../hooks/useDummyPosts.jsx";
-import {Box, Center, Grid, Heading, Spinner, Text, VStack} from "@chakra-ui/react";
+import {Center, Grid, Heading, Spinner, Text, VStack} from "@chakra-ui/react";
 import ProfilePost from "./ProfilePost.jsx";
 import {useParams} from "react-router-dom";
 

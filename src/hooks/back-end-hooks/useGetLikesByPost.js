@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { collection, doc, getDoc } from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {doc, getDoc} from "firebase/firestore";
 import useShowToast from "../useShowToast.jsx";
-import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
-import { firestore } from "../../config/firebase.js";
+import {firestore} from "../../config/firebase.js";
 
 const useGetLikesByPost = (postId) => {
     const [isLoading, setIsLoading] = useState(true);

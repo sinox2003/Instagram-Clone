@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Box, Button, IconButton, Tooltip, useColorMode, useDisclosure } from "@chakra-ui/react";
+import React, {useEffect} from 'react';
+import {Box, Button, IconButton, Tooltip, useColorMode, useDisclosure} from "@chakra-ui/react";
 import useToggleSidebar from "../../../../hooks/useToggleSidebar.jsx";
 import SearchDrawer from "../../../../laptopView/search/SearchDrawer.jsx";
 

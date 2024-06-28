@@ -1,6 +1,6 @@
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { collection, doc, getDocs, query, setDoc, where } from "firebase/firestore";
-import { auth, firestore } from "../../config/firebase.js";
+import {useCreateUserWithEmailAndPassword} from "react-firebase-hooks/auth";
+import {collection, doc, getDocs, query, setDoc, where} from "firebase/firestore";
+import {auth, firestore} from "../../config/firebase.js";
 import useShowToast from "../useShowToast.jsx";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
 

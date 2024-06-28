@@ -1,4 +1,3 @@
-
 import {Box} from "@chakra-ui/react";
 import SearchItem from "./SearchItem.jsx";
 import UserProfileSkeleton from "../../../sharedView/profile/components/UserProfileSkeleton.jsx";

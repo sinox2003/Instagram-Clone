@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import usePostStore from "../../store/Backend-stores/postStore.js";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
 import useShowToast from "../useShowToast.jsx";
-import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
-import {collection, getDocs, limit, orderBy, query, startAfter, where} from "firebase/firestore";
+import {collection, getDocs, limit, query, startAfter, where} from "firebase/firestore";
 import {firestore} from "../../config/firebase.js";
 
 const useGetFeedPosts = () => {

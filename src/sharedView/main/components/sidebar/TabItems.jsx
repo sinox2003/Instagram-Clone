@@ -1,16 +1,14 @@
-import {Avatar, Box, Stack, useBreakpointValue, useColorMode} from "@chakra-ui/react";
+import {Avatar, Box, Stack, useColorMode} from "@chakra-ui/react";
 
 import PathNavItem from "./PathNavItem.jsx";
-import {GoHeart, GoHeartFill, GoHome, GoHomeFill} from "react-icons/go";
+import {GoHome, GoHomeFill} from "react-icons/go";
 import DrawerNavItem from "./DrawerNavItem.jsx";
-import {RiSearch2Fill, RiSearchLine, RiSendPlaneFill, RiSendPlaneLine} from "react-icons/ri";
+import {RiSearch2Fill, RiSearchLine} from "react-icons/ri";
 import {MdExplore, MdOutlineExplore} from "react-icons/md";
 import ModalNavItem from "./ModalNavItem.jsx";
-import {CgAddR} from "react-icons/cg";
-import useDummyPosts from "../../../../hooks/useDummyPosts.jsx";
-import {useEffect, useState} from "react";
 import useAuthStore from "../../../../store/Backend-stores/authStore.js";
-import {CreateLogo, HeartWithNotification} from "../../../../assets/constants.jsx";
+import {CreateLogo} from "../../../../assets/constants.jsx";
+import {IoPaperPlaneOutline, IoPaperPlaneSharp} from "react-icons/io5";
 
 function TabItems() {
 
@@ -39,7 +37,7 @@ function TabItems() {
                     <PathNavItem name='Explore' icon={<MdOutlineExplore size={27} />} filledIcon={<MdExplore size={27} />} path={'explore'}   />
 
 
-                    <PathNavItem name='Messages' path={'chat'} icon={<RiSendPlaneLine size={27} strokeWidth={0.2} />} filledIcon={<RiSendPlaneFill size={27}  />}   />
+                    <PathNavItem name='Messages' path={'chat'} icon={  <Box as={IoPaperPlaneOutline} size={25} sx={{ transform: 'rotate(10deg)' }} />}  filledIcon={ <Box as={IoPaperPlaneSharp} size={25} sx={{ transform: 'rotate(10deg)' }} />}   />
 
                     {/*<Box display={{base:'none',md:'block'}} >*/}
                     {/*    <PathNavItem name='Notifications' path={'explore'} icon={  <HeartWithNotification  borderColor={switchMode('black','white')} />} filledIcon={<GoHeartFill size={26}  />} />*/}

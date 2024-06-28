@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import { Box, Container, Flex, useBreakpoint, VStack } from "@chakra-ui/react";
+import {Box, Container, Flex, useBreakpoint, VStack} from "@chakra-ui/react";
 import useToggleSidebar from "../../../hooks/useToggleSidebar.jsx";
 
 import HomeNavBar from "../components/HomeNavBar.jsx";

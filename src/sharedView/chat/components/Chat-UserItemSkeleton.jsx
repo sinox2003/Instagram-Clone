@@ -1,4 +1,4 @@
-import {Box, Flex, HStack, Skeleton, SkeletonCircle, Text, useColorMode} from "@chakra-ui/react";
+import {Box, Flex, HStack, Skeleton, SkeletonCircle, useColorMode} from "@chakra-ui/react";
 import React from "react";
 
 function ChatUserItemSkeleton() {

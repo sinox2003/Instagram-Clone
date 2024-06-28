@@ -32,7 +32,7 @@ function ProfilePost({post}) {
 
         }else {
             setUrl(document.URL)
-            console.log(post.id)
+
 
             window.history.replaceState(null, null, `/main/p/${post.id}`)
             onOpenPostModal()

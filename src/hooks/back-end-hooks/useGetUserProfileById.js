@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import useShowToast from "../useShowToast.jsx";
+import {useState} from "react";
+import {doc, getDoc} from "firebase/firestore";
 import {firestore} from "../../config/firebase.js";
 
 const useGetUserProfileById = () => {

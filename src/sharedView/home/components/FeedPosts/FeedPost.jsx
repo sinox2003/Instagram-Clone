@@ -1,9 +1,8 @@
-import {VStack, HStack, SkeletonCircle, Skeleton, Flex} from "@chakra-ui/react";
+import {VStack} from "@chakra-ui/react";
 import FeedPostHeader from "./FeedPostHeader.jsx";
 import FeedPostImage from "./FeedPostImage.jsx";
 import FeedPostFooter from "./FeedPostFooter.jsx";
-import { useEffect, useState } from "react";
-import useDummyPosts from "../../../../hooks/useDummyPosts.jsx";
+import {useEffect, useState} from "react";
 import FeedPostSkeleton from "./FeedPostSkeleton.jsx";
 import useGetUserProfileById from "../../../../hooks/back-end-hooks/useGetUserProfileById.js";
 

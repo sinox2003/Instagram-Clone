@@ -8,8 +8,10 @@ import {
     ModalBody,
     ModalContent,
     ModalFooter,
-    ModalOverlay, Spinner,
-    Text, useColorMode
+    ModalOverlay,
+    Spinner,
+    Text,
+    useColorMode
 } from "@chakra-ui/react";
 import {GoArrowLeft} from "react-icons/go";
 import {useNavigate} from "react-router-dom";

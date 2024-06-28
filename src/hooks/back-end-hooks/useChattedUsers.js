@@ -1,7 +1,7 @@
-import { useEffect, useState, useMemo } from 'react';
-import { doc, onSnapshot, getDoc } from 'firebase/firestore';
+import {useEffect, useMemo, useState} from 'react';
+import {doc, getDoc, onSnapshot} from 'firebase/firestore';
 import useAuthStore from "../../store/Backend-stores/authStore.js";
-import { firestore } from "../../config/firebase.js";
+import {firestore} from "../../config/firebase.js";
 
 const useChattedUsers = (isOpen) => {
     const [chattedUsers, setChattedUsers] = useState([]);

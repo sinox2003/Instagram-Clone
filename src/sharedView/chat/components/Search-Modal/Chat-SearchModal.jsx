@@ -1,29 +1,20 @@
 import {
+    Box,
+    Divider,
+    Input,
+    InputGroup,
+    InputLeftElement,
     Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Box,
+    ModalContent,
+    ModalOverlay,
     Text,
-    Divider,
-    InputGroup,
-    Input,
-    InputRightElement,
-    IconButton,
-    VStack,
     useColorMode,
-    InputLeftElement,
+    VStack,
 } from '@chakra-ui/react'
-import {IoMdCloseCircle} from "react-icons/io";
-import UserProfileSkeleton from "../../../profile/components/UserProfileSkeleton.jsx";
-import UserProfileItem from "../../../profile/components/UserProfileItem.jsx";
 import React, {useRef} from "react";
 import useSearchUser from "../../../../hooks/back-end-hooks/useSearchUser.js";
-import SearchItems from "../../../../laptopView/search/components/SearchItems.jsx";
-import ChatSearchItem from "./Chat-SearchItem.jsx";
 import ChatSearchItems from "./Chat-SearchItems.jsx";
 
 

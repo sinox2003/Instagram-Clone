@@ -1,6 +1,5 @@
 import {Avatar, Box, Center, HStack, Spacer, Spinner, Text, useColorMode} from "@chakra-ui/react";
 import useFollowUser from "../../../../hooks/back-end-hooks/useFollowUser.js";
-import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 function SuggestedUser({user}) {

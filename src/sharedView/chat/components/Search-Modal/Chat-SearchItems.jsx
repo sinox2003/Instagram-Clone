@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 import {Box, Center, Spinner, Text} from "@chakra-ui/react";
 import UserProfileSkeleton from "../../../profile/components/UserProfileSkeleton.jsx";
-import SearchItem from "../../../../laptopView/search/components/SearchItem.jsx";
 import ChatSearchItem from "./Chat-SearchItem.jsx";
 import {doc, getDoc, serverTimestamp, setDoc, updateDoc} from "firebase/firestore";
-import useChatStore from "../../../../store/Backend-stores/chatStore.js";
 import useAuthStore from "../../../../store/Backend-stores/authStore.js";
 import {firestore} from "../../../../config/firebase.js";
 import {useNavigate} from "react-router-dom";

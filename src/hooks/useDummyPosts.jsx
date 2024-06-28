@@ -91,7 +91,7 @@
 //     };
 //
 // export default useDummyPosts;
-import { useState } from 'react';
+import {useState} from 'react';
 
 const useDummyPosts = () => {
     const [isLoading, setIsLoading] = useState(true);

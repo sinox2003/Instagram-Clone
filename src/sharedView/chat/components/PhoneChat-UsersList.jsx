@@ -1,15 +1,13 @@
 import {Box, HStack, IconButton, Text, useColorMode, useDisclosure, VStack} from "@chakra-ui/react";
-import { PiNotePencilLight } from "react-icons/pi";
-import ChatUserItemSkeleton from "./Chat-UserItemSkeleton.jsx";
 import PhoneChatUserItem from "./PhoneChat-UserItem.jsx";
 import ChatSearchModal from "./Search-Modal/Chat-SearchModal.jsx";
-import { Link } from "react-router-dom";
-import { GoArrowLeft } from "react-icons/go";
+import {Link} from "react-router-dom";
+import {GoArrowLeft} from "react-icons/go";
 import PhoneChatUserItemSkeleton from "./PhoneChat-UserItemSkeleton.jsx";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
-import { useEffect, useState, useMemo } from "react";
-import { firestore } from "../../../config/firebase.js";
-import { doc, onSnapshot } from "firebase/firestore";
+import {useEffect, useMemo, useState} from "react";
+import {firestore} from "../../../config/firebase.js";
+import {doc, onSnapshot} from "firebase/firestore";
 import {FiEdit} from "react-icons/fi";
 
 function PhoneChatUsersList() {
@@ -57,6 +55,7 @@ function PhoneChatUsersList() {
             <HStack w={'full'} px={4} pb={1}>
                 <Text fontSize={'md'} fontWeight={'bold'}>Messages</Text>
             </HStack>
+
             <Box h={'calc(100dvh - 100px)'}  w={'full'}>
                 <VStack overflowY='scroll' h={'full'} pb={3} w={'full'} >
                     {
@@ -67,7 +66,7 @@ function PhoneChatUsersList() {
                             :
                             sortedChats.map((chat) => (
 
-                                <PhoneChatUserItem key={chat[0]} myId={authUser.uid} userId={chat[1].userInfo.uid} lastMessage={chat[1].lastMessage?.text} />
+                                <PhoneChatUserItem key={chat[0]} myId={authUser.uid} userId={chat[1].userInfo.uid} lastMessage={chat[1].lastMessage?.text}  date={chat[1].date}  />
                             ))
                     }
                 </VStack>

@@ -1,4 +1,4 @@
-import {useEffect, useRef} from 'react';
+import {useRef} from 'react';
 import {
     Box,
     Divider,
@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import {IoMdCloseCircle} from "react-icons/io";
 import SearchItems from "./SearchItems.jsx";
-import useDummyPosts from "../../../hooks/useDummyPosts.jsx";
 import useSearchUser from "../../../hooks/back-end-hooks/useSearchUser.js";
 
 function SearchBox() {

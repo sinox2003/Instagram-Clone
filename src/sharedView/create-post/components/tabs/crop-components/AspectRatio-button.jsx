@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Box, Button, IconButton, Menu, MenuButton, MenuDivider, MenuList, useColorMode} from "@chakra-ui/react";
 import {MdAspectRatio} from "react-icons/md";
 import {FaRegSquare} from "react-icons/fa";

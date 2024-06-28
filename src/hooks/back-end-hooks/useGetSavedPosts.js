@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import {doc, getDoc, collection, query, where, getDocs, documentId, limit, startAfter} from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {collection, documentId, getDocs, limit, query, startAfter, where} from "firebase/firestore";
 import useShowToast from "../useShowToast.jsx";
-import { firestore } from "../../config/firebase.js";
-import usePostStore from "../../store/Backend-stores/postStore.js";
+import {firestore} from "../../config/firebase.js";
 import useGetUserProfileByUsername from "./useGetUserProfileByUsername.js";
 
 const useGetSavedPosts = (username) => {

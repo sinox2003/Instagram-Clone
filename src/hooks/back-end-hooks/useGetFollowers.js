@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import {useCallback, useState} from 'react';
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
 
 const useGetFollowers = () => {
     const [followers, setFollowers] = useState([]);

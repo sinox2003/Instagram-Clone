@@ -1,6 +1,6 @@
 import {Box, Center, Spinner, Text, VStack} from "@chakra-ui/react";
 import FeedPost from "./FeedPost.jsx";
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 import FeedPostSkeleton from "./FeedPostSkeleton.jsx";
 import {Link} from "react-router-dom";
 import useGetFeedPosts from "../../../../hooks/back-end-hooks/useGetFeedPosts.js";

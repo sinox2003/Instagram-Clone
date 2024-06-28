@@ -1,8 +1,7 @@
-import { Box, Center, Flex, IconButton, Spinner, useColorMode, VStack } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
-import useDummyPosts from "../../../hooks/useDummyPosts.jsx";
+import {Box, Center, Flex, IconButton, Spinner, useColorMode, VStack} from "@chakra-ui/react";
+import React, {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {IoIosArrowBack} from "react-icons/io";
 import PostHeader from "../components/PostHeader.jsx";
 import PostComments from "../components/PostComments.jsx";
 import PostFooter from "../components/PostFooter.jsx";

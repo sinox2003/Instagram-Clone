@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import {Box, Center, Divider, Flex, Image, Spinner, Text, useColorMode, VStack} from "@chakra-ui/react";
 import {GoArrowLeft} from "react-icons/go";

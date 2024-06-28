@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
     Button,
     Flex,
@@ -8,11 +8,10 @@ import {
     InputRightElement,
     Text,
     useColorMode,
-    VStack,
-    Spinner
+    VStack
 } from "@chakra-ui/react";
-import { FaRegCheckCircle } from "react-icons/fa";
-import { IoCloseCircleOutline } from "react-icons/io5";
+import {FaRegCheckCircle} from "react-icons/fa";
+import {IoCloseCircleOutline} from "react-icons/io5";
 import useSignUpWithEmailAndPassword from "../../../hooks/back-end-hooks/useSignUpWithEmailAndPassword.js";
 
 function SignUp() {

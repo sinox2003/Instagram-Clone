@@ -1,15 +1,16 @@
-import { Collapse, Flex, IconButton, keyframes, Text, useColorMode, VStack } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { GoHeart, GoHeartFill } from "react-icons/go";
-import { RiChat3Line, RiSendPlaneLine } from "react-icons/ri";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import {Box, Collapse, Flex, IconButton, keyframes, Text, useColorMode, VStack} from "@chakra-ui/react";
+import React, {useEffect, useState} from "react";
+import {GoHeart, GoHeartFill} from "react-icons/go";
+import {RiChat3Line, RiSendPlaneLine} from "react-icons/ri";
+import {FaBookmark, FaRegBookmark} from "react-icons/fa";
 import FeedPostCommentInput from "./FeedPostCommentInput.jsx";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import usePostLikes from "../../../../hooks/usePostLikes.jsx";
 import useSharePost from "../../../../hooks/useSharePost.jsx";
 import usePostModal from "../../../../hooks/usePostModal.jsx";
 import useLikePost from "../../../../hooks/back-end-hooks/useLikePost.js";
 import useSavePost from "../../../../hooks/back-end-hooks/useSavePost.js";
+import {PiPaperPlaneTiltBold} from "react-icons/pi";
 
 function FeedPostFooter({ doubleClickLike, setDoubleClickLike,id, post, user }) {
     const { colorMode } = useColorMode();
@@ -17,7 +18,7 @@ function FeedPostFooter({ doubleClickLike, setDoubleClickLike,id, post, user }) 
 
     const [show, setShow] = useState(false);
     const { onLikesOpen, setPostId } = usePostLikes();
-    const { onShareOpen, setSharedPostId } = useSharePost();
+    const { onShareOpen, setSharedMessage } = useSharePost();
     const {onOpenPostModal,setUrl}=usePostModal()
 
 
@@ -50,7 +51,7 @@ function FeedPostFooter({ doubleClickLike, setDoubleClickLike,id, post, user }) 
     };
 
     const handleOnShareClick = () => {
-        setSharedPostId(`p/${id}`);
+        setSharedMessage(`${window.location.origin}/main/p/${id}`);
         onShareOpen();
     };
 
@@ -65,8 +66,8 @@ function FeedPostFooter({ doubleClickLike, setDoubleClickLike,id, post, user }) 
                         :
                         <IconButton onClick={handleLikePost} _hover={{ color: 'gray' }} variant={'link'} color={switchMode('white', 'black')} aria-label={'unlike'} icon={<GoHeart strokeWidth={0.3} size={27} />} />
                     }
-                    <IconButton _hover={{ color: 'gray' }} onClick={handleClickOnComments} transform="rotateY(180deg)" variant={'link'} color={switchMode('white', 'black')} aria-label={'comments'} icon={<RiChat3Line strokeWidth={0} size={28} />} />
-                    <IconButton _hover={{ color: 'gray' }} onClick={handleOnShareClick} transform="rotate(10deg)" variant={'link'} color={switchMode('white', 'black')} aria-label={'share'} icon={<RiSendPlaneLine strokeWidth={0} size={28} />} />
+                    <IconButton _hover={{ color: 'gray' }} onClick={handleClickOnComments} transform="rotateY(180deg)" variant={'link'} color={switchMode('white', 'black')} aria-label={'comments'} icon={<RiChat3Line strokeWidth={0} size={27} />} />
+                    <IconButton _hover={{ color: 'gray' }} onClick={handleOnShareClick} transform="rotate(10deg)" variant={'link'} color={switchMode('white', 'black')} aria-label={'share'} icon={<Box  sx={{ transform: 'rotate(5deg)' }} ><PiPaperPlaneTiltBold size={25} /></Box>} />
                 </Flex>
                 {saved ?
                     <IconButton onClick={handleSavePost} variant={'link'} color={switchMode('white', 'black')} aria-label={'unsaved'} icon={<FaBookmark strokeWidth={3} size={23} />} />

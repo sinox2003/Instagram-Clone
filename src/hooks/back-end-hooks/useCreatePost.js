@@ -1,14 +1,8 @@
-import  { useState } from "react";
+import {useState} from "react";
 
-import {
-  addDoc,
-  arrayUnion,
-  collection,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
-import { useLocation } from "react-router-dom";
+import {addDoc, arrayUnion, collection, doc, updateDoc,} from "firebase/firestore";
+import {getDownloadURL, ref, uploadString} from "firebase/storage";
+import {useLocation} from "react-router-dom";
 import useShowToast from "../useShowToast.jsx";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
 import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";

@@ -1,6 +1,5 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import useShowToast from "../useShowToast.jsx";
-import useAuthStore from "../../store/Backend-stores/authStore.js";
 
 const usePreviewImg = () => {
 	const [selectedFile, setSelectedFile] = useState(null);

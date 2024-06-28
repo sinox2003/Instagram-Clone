@@ -1,20 +1,23 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import {
     Box,
-    Divider, IconButton,
-    Input, InputGroup, InputRightElement,
+    Divider,
+    IconButton,
+    Input,
+    InputGroup,
+    InputRightElement,
     Modal,
     ModalBody,
     ModalCloseButton,
     ModalContent,
-    ModalOverlay, Spinner,
+    ModalOverlay,
     Text,
     useColorMode,
     VStack
 } from "@chakra-ui/react";
 import UserProfileItem from "./UserProfileItem.jsx";
-import { IoMdCloseCircle } from "react-icons/io";
-import { useParams } from "react-router-dom";
+import {IoMdCloseCircle} from "react-icons/io";
+import {useParams} from "react-router-dom";
 import UserProfileSkeleton from "./UserProfileSkeleton.jsx";
 import useGetFollowers from "../../../hooks/back-end-hooks/useGetFollowers.js";
 

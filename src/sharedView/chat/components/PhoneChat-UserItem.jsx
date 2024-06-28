@@ -1,17 +1,14 @@
 import {NavLink} from "react-router-dom";
-import {Avatar, AvatarBadge, Box, Flex, HStack, Text, useColorMode} from "@chakra-ui/react";
+import {Avatar, Box, Flex, HStack, Text, useColorMode} from "@chakra-ui/react";
 import {useEffect, useState} from "react";
-import {postTimeAgo} from "../../../utils/postTimeAgo.js";
-import {timeAgo} from "../../../utils/timeAgo.js";
-import useChatStore from "../../../store/Backend-stores/chatStore.js";
 import useGetUserProfileById from "../../../hooks/back-end-hooks/useGetUserProfileById.js";
 import PhoneChatUserItemSkeleton from "./PhoneChat-UserItemSkeleton.jsx";
+import {timeAgo} from "../../../utils/timeAgo.js";
 
-function PhoneChatUserItem({userId,myId,lastMessage}) {
+function PhoneChatUserItem({userId,myId,lastMessage,date}) {
 
     const {colorMode}=useColorMode()
     const switchMode=(dark,light)=>(colorMode==='dark'?dark:light)
-    const setSelectedUser = useChatStore((state) => state.setUser);
 
     const [combinedId, setCombinedId] = useState()
     const {isUserLoading,getUserProfile,userProfile}=useGetUserProfileById()
@@ -52,8 +49,23 @@ function PhoneChatUserItem({userId,myId,lastMessage}) {
                             <Text fontSize={'15px'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'} >
                                 {userProfile?.username}
                             </Text>
-                            <Text fontSize={'xs'} color={'#bdbdbd'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'}>
-                                {lastMessage}
+                            {/*<Text fontSize={'xs'} color={'#bdbdbd'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'}>*/}
+                            {/*    {lastMessage}*/}
+                            {/*</Text>*/}
+                            <Text fontSize={'xs'} color={'#bdbdbd'}  display="flex" alignItems="center">
+                                <Box
+                                    sx={{
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: '1',
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
+                                    }}
+                                    maxW={'195px'}
+                                    mr={1} // Add margin-right for spacing between elements
+                                >
+                                    {lastMessage}
+                                </Box>
+                                {lastMessage && `• ${timeAgo(date)}`}
                             </Text>
                         </Flex>
                     </HStack>

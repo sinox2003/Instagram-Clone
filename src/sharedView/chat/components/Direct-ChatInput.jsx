@@ -1,25 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-    Box,
-    IconButton,
-    Image,
-    Input,
-    HStack,
-    Text,
-    useColorMode, Spinner,
-} from "@chakra-ui/react";
-import { BsEmojiSmile } from "react-icons/bs";
+import React, {useEffect, useRef, useState} from "react";
+import {Box, HStack, IconButton, Image, Input, Spinner, Text, useColorMode,} from "@chakra-ui/react";
+import {BsEmojiSmile} from "react-icons/bs";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
-import { CiImageOn } from "react-icons/ci";
-import { GoHeart } from "react-icons/go";
-import { IoIosCloseCircleOutline } from "react-icons/io";
-import useChatStore from "../../../store/Backend-stores/chatStore.js";
+import {CiImageOn} from "react-icons/ci";
+import {GoHeart} from "react-icons/go";
+import {IoIosCloseCircleOutline} from "react-icons/io";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
-import { v4 } from "uuid";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { arrayUnion, doc, serverTimestamp, updateDoc } from "firebase/firestore";
-import { firestore, storage } from "../../../config/firebase.js";
+import {v4} from "uuid";
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+import {arrayUnion, doc, serverTimestamp, updateDoc} from "firebase/firestore";
+import {firestore, storage} from "../../../config/firebase.js";
 
 function DirectChatInput({user,chatId}) {
     const [isPickerVisible, setPickerVisible] = useState(false);

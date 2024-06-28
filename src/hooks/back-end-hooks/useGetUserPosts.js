@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 import {collection, documentId, getDocs, limit, orderBy, query, startAfter, where} from "firebase/firestore";
-import usePostStore from "../../store/Backend-stores/postStore.js";
 import useShowToast from "../useShowToast.jsx";
-import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
 import {firestore} from "../../config/firebase.js";
 import useGetUserProfileByUsername from "./useGetUserProfileByUsername.js";
 

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {
     Box,
     Flex,
@@ -11,10 +11,10 @@ import {
     MenuList,
     useColorMode
 } from "@chakra-ui/react";
-import { IoMdCloseCircle } from "react-icons/io";
-import { Link, NavLink } from "react-router-dom";
-import { InstagramLogo } from "../../../assets/constants.jsx";
-import { GoHeart, GoHeartFill } from "react-icons/go";
+import {IoMdCloseCircle} from "react-icons/io";
+import {Link, NavLink} from "react-router-dom";
+import {InstagramLogo} from "../../../assets/constants.jsx";
+import {GoHeart, GoHeartFill} from "react-icons/go";
 import SearchItems from "../../../laptopView/search/components/SearchItems.jsx";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import useSearchUser from "../../../hooks/back-end-hooks/useSearchUser.js";

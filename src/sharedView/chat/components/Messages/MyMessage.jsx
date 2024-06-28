@@ -29,7 +29,7 @@ const MyMessage = ({groupSize,index,message}) => {
 
         return (
 
-            <VStack w={'full'} flexDir= "row-reverse" spacing={0} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+            <VStack w={'full'} flexDir= "row-reverse" spacing={3} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
 
                     <Text  fontSize={"50px"}>
                         {message.text}
@@ -37,7 +37,7 @@ const MyMessage = ({groupSize,index,message}) => {
 
                 {
                     showMore &&
-                        <MessageMore />
+                        <MessageMore  message={message}  direction={'left-end'} />
 
                 }
             </VStack>
@@ -48,12 +48,12 @@ const MyMessage = ({groupSize,index,message}) => {
     return (
 
 
-                <VStack w={'full'} flexDir= "row-reverse" spacing={1} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+                <VStack w={'full'} flexDir= "row-reverse" spacing={3} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
 
                         <Box background={ !message.text  ? "transparent" :  "linear-gradient(90deg, #9014FF,#7A10BD, #3314D6)" } color={ "white" } borderRadius={oneMessage ? "20px" : firstMessage ? "20px 20px 5px 20px" : lastMessage ? "20px  5px 20px 20px" :"20px 5px 5px 20px" } w={"max-content"} maxW={{ base: "200px", md: "300px" }}>
                             <Image
                                 src={message.img}
-                                maxW={{ base: "200px", md: "236px" }}
+                                maxW={message.text ? "full":{ base: "200px", md: "236px" }}
                                 maxH={'340px'}
                                 borderRadius={oneMessage ? (message.text ? "20px 20px 0px 0px" : "20px") : firstMessage ? (message.text ? "20px 20px 0px 0px" :  "20px 20px 5px 20px") : lastMessage ? (message.text ? "20px  5px 0px 0px" :  "20px  5px 20px 20px")   : (message.text ? "20px 5px 0px 0px" :  "20px 5px 5px 20px")  }
                                 overflow={"hidden"}
@@ -77,7 +77,7 @@ const MyMessage = ({groupSize,index,message}) => {
                         </Box>
                     {
                         showMore &&
-                             <MessageMore />
+                             <MessageMore   message={message} direction={'left-end'} />
 
                     }
 

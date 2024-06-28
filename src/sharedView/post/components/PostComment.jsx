@@ -1,5 +1,5 @@
 import {Avatar, Box, Flex, Text} from "@chakra-ui/react";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import useGetUserProfileById from "../../../hooks/back-end-hooks/useGetUserProfileById.js";
 import {useEffect} from "react";
 import PostCommentSkeleton from "./PostCommentSkeleton.jsx";

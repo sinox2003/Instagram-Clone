@@ -1,10 +1,9 @@
-import  {lazy, Suspense} from "react";
+import {lazy, Suspense} from "react";
 import {createBrowserRouter, Navigate, Outlet, RouterProvider} from "react-router-dom";
 import LoadingPage from "./sharedView/loading-pages/LoadingPage.jsx";
 import PublicRoute from "./routes/PublicRoute.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import PostPage from "./sharedView/post/pages/PostPage.jsx";
-
 
 
 const LazyAuthPage = lazy(() => import("./sharedView/login/pages/AuthPage.jsx"));

@@ -7,16 +7,20 @@ const useSharePost = () => {
     const isOpen =useSharePostSelector.use.isOpen();
     const onShareOpen =useSharePostSelector.use.onOpen();
     const onClose =useSharePostSelector.use.onClose();
-    const postId =useSharePostSelector.use.postId();
-    const setSharedPostId =useSharePostSelector.use.setPostId();
+    const message =useSharePostSelector.use.message();
+    const setSharedMessage =useSharePostSelector.use.setMessage();
+    const image =useSharePostSelector.use.image();
+    const setSharedImage =useSharePostSelector.use.setImage();
 
 
     return {
         isOpen,
         onShareOpen,
         onClose,
-        postId,
-        setSharedPostId,
+        message,
+        setSharedMessage,
+        image,
+        setSharedImage,
     }
 
 

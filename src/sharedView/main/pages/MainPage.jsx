@@ -3,7 +3,7 @@ import Sidebar from "../components/sidebar/Sidebar.jsx";
 import useToggleSidebar from "../../../hooks/useToggleSidebar.jsx";
 
 import {Outlet} from "react-router-dom";
-import React, {Suspense, useEffect, useState} from "react";
+import React, {Suspense} from "react";
 import ProgressLoader from "../../loading-pages/ProgressLoader.jsx";
 import PostModal from "../../post/modals/PostModal.jsx";
 
@@ -12,7 +12,6 @@ import SliderAlert from "../../Alert-messages/Slider-Alert.jsx";
 import PostOptionsModal from "../../post/modals/PostOptions-Modal.jsx";
 import PostLikesModal from "../../post/modals/PostLikes-Modal.jsx";
 import SharePostModal from "../../post/modals/SharePost-Modal.jsx";
-import { onDisconnect } from "firebase/database";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import useUserPresence from "../../../hooks/back-end-hooks/useUserPresence.js";
 

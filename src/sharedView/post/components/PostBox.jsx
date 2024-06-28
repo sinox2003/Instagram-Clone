@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {Box, Center, Flex, ModalContent, Spinner, useColorMode, VStack} from "@chakra-ui/react";
-import useDummyPosts from "../../../hooks/useDummyPosts.jsx";
 import PostHeader from "./PostHeader.jsx";
 import PostFooter from "./PostFooter.jsx";
 import PostComments from "./PostComments.jsx";

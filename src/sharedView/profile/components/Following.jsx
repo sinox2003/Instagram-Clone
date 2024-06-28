@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import {
     Box,
     Divider,
@@ -12,11 +12,11 @@ import {
     ModalContent,
     ModalOverlay,
     Text,
-    VStack,
     useColorMode,
+    VStack,
 } from '@chakra-ui/react';
-import { IoMdCloseCircle } from 'react-icons/io';
-import { useParams } from 'react-router-dom';
+import {IoMdCloseCircle} from 'react-icons/io';
+import {useParams} from 'react-router-dom';
 import UserProfileItem from './UserProfileItem';
 import UserProfileSkeleton from './UserProfileSkeleton';
 import useGetFollowing from '../../../hooks/back-end-hooks/useGetFollowing';

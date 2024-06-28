@@ -4,7 +4,6 @@ import {Suspense, useEffect} from "react";
 import {Outlet} from "react-router-dom";
 import ChatUsersList from "./components/Chat-UsersList.jsx";
 import ProgressLoader from "../loading-pages/ProgressLoader.jsx";
-import ChatSearchModal from "./components/Search-Modal/Chat-SearchModal.jsx";
 
 function ChatPage() {
 

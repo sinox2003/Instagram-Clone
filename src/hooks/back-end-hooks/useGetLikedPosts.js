@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import {collection, getDocs, query, where, documentId, orderBy, limit, startAfter} from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {collection, documentId, getDocs, limit, query, startAfter, where} from "firebase/firestore";
 import useShowToast from "../useShowToast.jsx";
-import { firestore } from "../../config/firebase.js";
+import {firestore} from "../../config/firebase.js";
 import useGetUserProfileByUsername from "./useGetUserProfileByUsername.js";
 
 const useGetLikedPosts = (username) => {

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import {useState} from "react";
+import {doc, getDoc} from "firebase/firestore";
 import useShowToast from "../useShowToast.jsx";
-import { firestore } from "../../config/firebase.js";
+import {firestore} from "../../config/firebase.js";
 
 const useGetPostById = () => {
 	const [isLoading, setIsLoading] = useState(true);

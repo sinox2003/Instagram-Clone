@@ -1,31 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { firestore } from "../../../config/firebase.js";
-import { Box, VStack, Spinner, HStack, Avatar, Center, Text } from "@chakra-ui/react";
+import { Avatar, Box, Center, HStack, Spinner, Text, Tooltip, VStack } from "@chakra-ui/react";
 import MyMessage from "./Messages/MyMessage.jsx";
 import { useInView } from "react-intersection-observer";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import { messagesTime } from "../../../utils/messagesTime.js";
 import UserMessage from "./Messages/UserMessage.jsx";
+import { Link } from "react-router-dom";
 
 function DirectChatBox({ id, user }) {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(true);
     const refBottom = useRef();
+    const prevMessagesLength = useRef(0);
     const { inView, ref } = useInView();
     const authUser = useAuthStore((state) => state.user);
 
-
     useEffect(() => {
 
-        refBottom.current.scrollIntoView({  });
-
-    }, [messages]);
-
-    useEffect(() => {
         const unSub = onSnapshot(doc(firestore, "chats", id), (doc) => {
             if (doc.exists()) {
-                setMessages(doc.data().messages);
+                const newMessages = doc.data().messages;
+                setMessages( newMessages);
                 setLoading(false);
             }
         });
@@ -33,6 +30,14 @@ function DirectChatBox({ id, user }) {
             unSub();
         };
     }, [id]);
+
+
+    useEffect(() => {
+        if (messages.length > prevMessagesLength.current) {
+            refBottom.current.scrollIntoView({  });
+        }
+        prevMessagesLength.current = messages.length;
+    }, [messages]);
 
 
 
@@ -62,10 +67,9 @@ function DirectChatBox({ id, user }) {
         <Box h="full">
             <VStack overflowY="scroll" ref={ref} spacing={1} px={{ base: 3, md: 4 }} h="full">
                 {loading ? (
-                    <Center h={'full'}>
-                        <Spinner size="xl" />
+                    <Center h="full">
+                        <Spinner />
                     </Center>
-
                 ) : (
                     groupedMessages.map((group, groupIndex) => {
                         const showTimestamp = groupIndex === 0 || group[0].date - groupedMessages[groupIndex - 1][0].date >= 1800000;
@@ -79,26 +83,25 @@ function DirectChatBox({ id, user }) {
                                         </Text>
                                     </Center>
                                 )}
-                                {
-                                    group[0].senderId === authUser.uid ? (
-                                    <VStack w="full" spacing={'3px'}>
-                                        {group.map((m,index) => (
-
-                                            <MyMessage key={index} groupSize={group.length} index={index} message={m} />
+                                {group[0].senderId === authUser.uid ? (
+                                    <VStack w="full" spacing="3px">
+                                        {group.map((m, index) => (
+                                            <MyMessage key={index}  groupSize={group.length} index={index} message={m} />
                                         ))}
                                     </VStack>
-
                                 ) : (
-
                                     <HStack alignItems="end" w="full">
-                                        <Avatar src={user?.profilePicURL} size="sm" />
-                                        <VStack w="full" spacing={'3px'}>
-                                            {group.map((m,index) => (
-                                                <UserMessage key={index} groupSize={group.length} index={index} message={m} />
+                                        <Tooltip label={user?.username} bg="whiteAlpha.800" boxShadow="xs" color="black" placement="left" p={2} borderRadius={9}>
+                                            <Link to={`/main/profile/${user?.username}/posts`}>
+                                                <Avatar src={user?.profilePicURL} size="sm" />
+                                            </Link>
+                                        </Tooltip>
+                                        <VStack w="full" spacing="3px">
+                                            {group.map((m, index) => (
+                                                <UserMessage key={index}  groupSize={group.length} index={index} message={m} />
                                             ))}
                                         </VStack>
                                     </HStack>
-
                                 )}
                             </VStack>
                         );

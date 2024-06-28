@@ -1,5 +1,5 @@
-import { menuAnatomy } from '@chakra-ui/anatomy';
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react';
+import {menuAnatomy} from '@chakra-ui/anatomy';
+import {createMultiStyleConfigHelpers, defineStyle} from '@chakra-ui/react';
 
 const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpers(menuAnatomy.keys);
 
@@ -71,8 +71,9 @@ const xl = defineStyle({
 });
 
 const sm = defineStyle({
-    fontSize: 'xs',
+    fontSize: 'sm',
     my: '0',
+    borderRadius: 'lg',
     py:'2'
 });
 
@@ -93,8 +94,8 @@ const sizes = {
         item: sm,
         list: {
             minW: '180px',
-            m: '2',
-            borderRadius: '2xl',
+
+            borderRadius: 'xl',
         },
         groupTitle: sm,
         command: sm,

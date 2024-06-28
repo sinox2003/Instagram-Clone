@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Button, HStack, Text, useColorMode, VStack} from "@chakra-ui/react";
 import {InstagramLogo} from "../../assets/constants.jsx";
 import {Link, NavLink, useNavigate} from "react-router-dom";

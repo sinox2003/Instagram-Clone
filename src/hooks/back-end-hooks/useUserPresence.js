@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { ref, onDisconnect, onValue, set, get } from "firebase/database";
-import { realtimeDatabase } from "../../config/firebase.js";
+import {useEffect} from "react";
+import {get, onDisconnect, onValue, ref, set} from "firebase/database";
+import {realtimeDatabase} from "../../config/firebase.js";
 
 const useUserPresence = (user) => {
     useEffect(() => {

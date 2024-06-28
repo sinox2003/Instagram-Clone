@@ -1,13 +1,11 @@
-import { HStack, IconButton, Text, useColorMode, useDisclosure, VStack } from "@chakra-ui/react";
-import { PiNotePencilLight } from "react-icons/pi";
+import {HStack, IconButton, Text, useColorMode, useDisclosure, VStack} from "@chakra-ui/react";
 import ChatUserItem from "./Chat-UserItem.jsx";
 import ChatUserItemSkeleton from "./Chat-UserItemSkeleton.jsx";
 import ChatSearchModal from "./Search-Modal/Chat-SearchModal.jsx";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
-import useChatStore from "../../../store/Backend-stores/chatStore.js";
-import { useEffect, useState, useMemo } from "react";
-import { firestore } from "../../../config/firebase.js";
-import { doc, onSnapshot } from "firebase/firestore";
+import {useEffect, useMemo, useState} from "react";
+import {firestore} from "../../../config/firebase.js";
+import {doc, onSnapshot} from "firebase/firestore";
 import {FiEdit} from "react-icons/fi";
 
 function ChatUsersList() {

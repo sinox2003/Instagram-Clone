@@ -1,16 +1,5 @@
 import React from 'react';
-import {
-    Button,
-    Center,
-    Divider,
-    Flex,
-    FormLabel,
-    Input,
-    ModalCloseButton,
-    ModalHeader,
-    Text,
-    VStack
-} from "@chakra-ui/react";
+import {Center, Divider, FormLabel, Input, ModalCloseButton, ModalHeader, Text, VStack} from "@chakra-ui/react";
 import {TbPhotoVideo} from "react-icons/tb";
 import {usePreparePost} from "../../../../hooks/usePreparePost.jsx";
 

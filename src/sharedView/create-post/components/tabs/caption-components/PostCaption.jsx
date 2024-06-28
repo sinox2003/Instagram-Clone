@@ -1,7 +1,7 @@
 import {Box, Flex, IconButton, Menu, MenuButton, MenuList, Textarea, useColorMode} from "@chakra-ui/react";
 
 import Picker from '@emoji-mart/react'
-import {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import data from '@emoji-mart/data'
 import {BsEmojiSmile} from "react-icons/bs";
 

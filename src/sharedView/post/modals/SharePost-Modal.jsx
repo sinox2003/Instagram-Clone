@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {
     Badge,
     Box,
@@ -21,19 +21,22 @@ import {
 } from "@chakra-ui/react";
 
 import useSharePost from "../../../hooks/useSharePost.jsx";
-import { IoClose } from "react-icons/io5";
+import {IoClose} from "react-icons/io5";
 import SharePostItem from "../components/SharePost-item.jsx";
 import useSliderAlert from "../../../hooks/useSliderAlert.jsx";
 import useChattedUsers from "../../../hooks/back-end-hooks/useChattedUsers.js";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
-import { doc, updateDoc, arrayUnion, serverTimestamp } from "firebase/firestore";
-import { firestore } from "../../../config/firebase.js";
+import {arrayUnion, doc, updateDoc} from "firebase/firestore";
+import {firestore, storage} from "../../../config/firebase.js";
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+import {v4} from "uuid";
+import {m} from "framer-motion";
 
 function SharePostModal() {
     const { colorMode } = useColorMode();
     const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
 
-    const { isOpen, onClose, postId } = useSharePost();
+    const { isOpen,onClose,message,image,setSharedImage,setSharedMessage} = useSharePost();
     const { setIsSliderAlertOpen } = useSliderAlert();
     const [isSentLoading, setSentIsLoading] = useState(false);
     const [usersSharedWith, setUsersSharedWith] = useState([]);
@@ -64,29 +67,44 @@ function SharePostModal() {
 
     const handleSend = async () => {
         if (usersSharedWith.length > 0) {
-            const newURL = `${window.location.origin}/main/${postId}`;
+
             setSentIsLoading(true);
 
             try {
+
+
                 usersSharedWith.map(async (user) => {
                     const chatDocRef = doc(firestore, "chats", user.chatId);
                     await updateDoc(chatDocRef, {
                         messages: arrayUnion({
                             id: new Date().getTime().toString(),
-                            text: newURL,
+                            text: message,
                             senderId: authUser.uid,
                             date: Date.now(),
+                            ...(image && { img: image }),
                         })
                     });
+
+                    let myLatestMessage = message;
+                    let userLatestMessage = message;
+
+                    if (message!=="" && message.startsWith(window.location.origin+"/main/p")) {
+                        myLatestMessage = "You sent an attachment";
+                        userLatestMessage = `${authUser.username} sent an attachment`;
+                    } else if (message==="" && image) {
+                        myLatestMessage = "You sent an image";
+                        userLatestMessage = `${authUser.username} sent an image`;
+                    }
+
                     await updateDoc(doc(firestore, "userChats", authUser.uid), {
                         [user.chatId + ".lastMessage"]: {
-                            text: "you sent an attachment",
+                            text: myLatestMessage,
                         },
                         [user.chatId + ".date"]:Date.now(),
                     });
                     await updateDoc(doc(firestore, "userChats", user.uid), {
                         [user.chatId + ".lastMessage"]: {
-                            text: `${authUser.username} sent an attachment`,
+                            text: userLatestMessage,
                         },
                         [user.chatId + ".date"]:Date.now(),
                     });
@@ -98,8 +116,13 @@ function SharePostModal() {
                 console.error("Error sending URL to users:", error);
             } finally {
                 setSentIsLoading(false);
+                setSharedImage('');
+                setSharedMessage('');
+
             }
         }
+
+
     };
 
     const filteredUsers = chattedUsers.filter(user =>

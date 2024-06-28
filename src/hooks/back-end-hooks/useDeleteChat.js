@@ -1,7 +1,7 @@
 // useDeleteChat.js
-import { useState } from 'react';
-import { doc, updateDoc, serverTimestamp, arrayUnion } from "firebase/firestore";
-import { firestore } from "../../config/firebase.js";
+import {useState} from 'react';
+import {doc, updateDoc} from "firebase/firestore";
+import {firestore} from "../../config/firebase.js";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
 
 const useDeleteChat = () => {
@@ -25,14 +25,14 @@ const useDeleteChat = () => {
                 [`${chatId}.lastMessage`]: {
                     text: "",
                 },
-                [`${chatId}.date`]: serverTimestamp(),
+                [`${chatId}.date`]: Date.now(),
             });
 
             await updateDoc(doc(firestore, "userChats", user.uid), {
                 [`${chatId}.lastMessage`]: {
                     text: "",
                 },
-                [`${chatId}.date`]: serverTimestamp(),
+                [`${chatId}.date`]: Date.now(),
             });
 
             console.log(`Chat content with ID ${chatId} cleared successfully`);

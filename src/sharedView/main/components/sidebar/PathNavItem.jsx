@@ -1,5 +1,5 @@
-import { Box, Button, IconButton, Tooltip, useColorMode } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import {Box, Button, IconButton, Tooltip, useColorMode} from "@chakra-ui/react";
+import {NavLink} from "react-router-dom";
 import useToggleSidebar from "../../../../hooks/useToggleSidebar.jsx";
 
 function PathNavItem({ path, name, icon, filledIcon }) {
@@ -70,6 +70,7 @@ function PathNavItem({ path, name, icon, filledIcon }) {
                             width={'full'}
                             iconSpacing={4}
                             fontWeight={isActive ? 'bold' : '400'}
+
                             leftIcon={isActive ? filledIcon : icon}
                             _hover={{
                                 bg: switchMode('whiteAlpha.200', 'blackAlpha.100'),

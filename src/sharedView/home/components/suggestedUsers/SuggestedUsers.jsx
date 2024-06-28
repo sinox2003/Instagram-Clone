@@ -2,7 +2,6 @@ import {Box, Flex, Spacer, Text} from "@chakra-ui/react";
 import SuggestedHeader from "./SuggestedHeader.jsx";
 import SuggestedUser from "./SuggestedUser.jsx";
 import useGetSuggestedUsers from "../../../../hooks/back-end-hooks/useGetSuggestedUsers.js";
-import {useEffect} from "react";
 
 function SuggestedUsers() {
 

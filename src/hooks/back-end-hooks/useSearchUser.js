@@ -1,6 +1,6 @@
-import { query, collection, getDocs, orderBy, startAt, endAt, limit, where } from 'firebase/firestore';
-import { useState } from 'react';
-import { firestore } from '../../config/firebase.js';
+import {collection, endAt, getDocs, limit, orderBy, query, startAt} from 'firebase/firestore';
+import {useState} from 'react';
+import {firestore} from '../../config/firebase.js';
 
 const useSearchUser = () => {
     const [isLoading, setIsLoading] = useState(false);

@@ -17,10 +17,10 @@ import useFollowUser from "../../../hooks/back-end-hooks/useFollowUser.js";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import usePostStore from "../../../store/Backend-stores/postStore.js";
 import useShowToast from "../../../hooks/useShowToast.jsx";
-import {ref ,deleteObject} from "firebase/storage";
+import {deleteObject, ref} from "firebase/storage";
 import {firestore, storage} from "../../../config/firebase.js";
 import useUserProfileStore from "../../../store/Backend-stores/userProfileStore.js";
-import { arrayRemove, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import {arrayRemove, deleteDoc, doc, updateDoc} from "firebase/firestore";
 import useGetUserProfileByUsername from "../../../hooks/back-end-hooks/useGetUserProfileByUsername.js";
 
 

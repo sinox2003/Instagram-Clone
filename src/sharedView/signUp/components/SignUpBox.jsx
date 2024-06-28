@@ -1,15 +1,4 @@
-
-import {
-    Button,
-    Divider,
-    Flex,
-    HStack,
-    Image,
-    StackItem,
-    Text,
-    useColorMode,
-    VStack
-} from "@chakra-ui/react";
+import {Button, Divider, Flex, HStack, Image, StackItem, Text, useColorMode, VStack} from "@chakra-ui/react";
 import {InstagramLogo} from "../../../assets/constants.jsx";
 import {Link, NavLink} from "react-router-dom";
 import {FaGoogle} from "react-icons/fa";

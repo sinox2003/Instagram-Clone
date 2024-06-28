@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Avatar, Box, Center, HStack, Spacer, Text, useColorMode, VStack } from "@chakra-ui/react";
-import { IoMdCheckmark } from "react-icons/io";
-import useGetUserProfileById from "../../../hooks/back-end-hooks/useGetUserProfileById.js";
-import UserProfileSkeleton from "../../profile/components/UserProfileSkeleton.jsx";
+import React, {useEffect, useState} from 'react';
+import {Avatar, Box, Center, HStack, Spacer, Text, useColorMode, VStack} from "@chakra-ui/react";
+import {IoMdCheckmark} from "react-icons/io";
 
 function SharePostItem({user,uid, chatId,sendTo, removeFromList,  isChecked }) {
     const { colorMode } = useColorMode();

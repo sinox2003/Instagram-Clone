@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import useFeedPostOptions from "../../../hooks/useFeedPostOptions.jsx";
 import {TbDots} from "react-icons/tb";
-import {useEffect} from "react";
 
 function PostHeader({post,isLoading,user,id}) {
     const navigate=useNavigate()

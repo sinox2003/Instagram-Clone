@@ -44,7 +44,7 @@ function ProfileNavBar() {
 
 
 
-              <Text  fontWeight={'semibold'} fontSize={'lg'}   cursor={'default'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'230px'} > { params.username }</Text>
+              <Text  fontWeight={'semibold'} fontSize={'16px'}   cursor={'default'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'230px'} > { params.username }</Text>
 
               <IconButton  variant='link'  color={switchMode('white','black')}    onClick={toggleColorMode} icon={switchMode(<TbMoon size={27}  />,<MdOutlineWbSunny size={27}  />)}  aria-label={'theme'}/>
           </Flex>

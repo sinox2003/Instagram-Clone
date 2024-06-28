@@ -7,8 +7,10 @@ const sharePostStore=create((set)=>({
     isOpen:false,
     onOpen:()=>set({isOpen:true}) ,
     onClose:()=>set({isOpen:false}),
-    postId:'',
-    setPostId:(id)=>set({postId:id}),
+    message:'',
+    setMessage:(id)=>set({message:id}),
+    image:null,
+    setImage:(image)=>set({image:image}),
 
 
 }));

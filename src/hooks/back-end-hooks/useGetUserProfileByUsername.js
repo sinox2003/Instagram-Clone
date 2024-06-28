@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {collection, getDocs, query, where} from "firebase/firestore";
 import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
 import {firestore} from "../../config/firebase.js";
 

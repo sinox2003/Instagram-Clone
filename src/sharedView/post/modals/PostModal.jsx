@@ -1,23 +1,7 @@
-import {
-    Box,
-    Divider,
-    HStack,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalOverlay,
-    Text,
-    useBreakpointValue,
-    useColorMode
-} from '@chakra-ui/react'
+import {Box, Modal, ModalCloseButton, ModalOverlay, useBreakpointValue} from '@chakra-ui/react'
 
 
 import usePostModal from "../../../hooks/usePostModal.jsx";
-
-import PostComments from "../components/PostComments.jsx";
-import PostCommentInput from "../components/PostCommentInput.jsx";
-import {IoIosArrowBack} from "react-icons/io";
 import PostBox from "../components/PostBox.jsx";
 import PostBoxPhone from "../components/PostBoxPhone.jsx";
 

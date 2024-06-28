@@ -1,7 +1,4 @@
-import { CreatePostSelector } from "../store/createPost-store.jsx";
-import useCreatePost from "./back-end-hooks/useCreatePost.js";
-import useShowToast from "./useShowToast.jsx";
-import { useEffect, useState } from "react";
+import {CreatePostSelector} from "../store/createPost-store.jsx";
 
 export const usePreparePost = () => {
     const setImage = CreatePostSelector.use.setImage();

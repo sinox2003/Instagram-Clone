@@ -1,8 +1,7 @@
 import React, {useEffect, useRef} from 'react';
-import {Box, Container, Heading, VStack} from "@chakra-ui/react";
+import {Box, VStack} from "@chakra-ui/react";
 import useToggleSidebar from "../../../hooks/useToggleSidebar.jsx";
 import HomeNavBar from "../../home/components/HomeNavBar.jsx";
-import FeedPosts from "../../home/components/FeedPosts/FeedPosts.jsx";
 import ExplorePosts from "../components/ExplorePosts.jsx";
 
 function ExplorePage(props) {

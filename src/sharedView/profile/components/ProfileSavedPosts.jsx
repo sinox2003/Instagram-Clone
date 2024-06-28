@@ -1,14 +1,10 @@
 import {useEffect} from 'react';
-import useDummyPosts from "../../../hooks/useDummyPosts.jsx";
-import {Box, Center, Grid, Heading, Spinner, Text, VStack} from "@chakra-ui/react";
-import {HiOutlineCamera} from "react-icons/hi";
+import {Center, Grid, Heading, Spinner, Text, VStack} from "@chakra-ui/react";
 import ProfilePost from "./ProfilePost.jsx";
 import {useParams} from "react-router-dom";
 import {LuBookMarked} from "react-icons/lu";
 import useGetSavedPosts from "../../../hooks/back-end-hooks/useGetSavedPosts.js";
-import usePostStore from "../../../store/Backend-stores/postStore.js";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
-import useGetLikedPosts from "../../../hooks/back-end-hooks/useGetLikedPosts.js";
 import {useInView} from "react-intersection-observer";
 
 function ProfileSavedPosts() {

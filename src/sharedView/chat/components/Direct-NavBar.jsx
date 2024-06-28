@@ -1,20 +1,19 @@
 import {
     Avatar,
-    Box, Divider,
+    Box,
     HStack,
-    IconButton, Modal, ModalBody,
-    ModalContent, ModalFooter, ModalOverlay,
+    IconButton,
     Skeleton,
     SkeletonCircle,
     Text,
-    useColorMode, useDisclosure
+    useColorMode,
+    useDisclosure
 } from "@chakra-ui/react";
 import {IoInformationCircle, IoInformationCircleOutline} from "react-icons/io5";
 import {GoArrowLeft} from "react-icons/go";
 import {Link, useNavigate} from "react-router-dom";
 
 import ChatInfos from "./Chat-Infos.jsx";
-
 
 
 function DirectNavBar({user,chatId,isLoading}) {

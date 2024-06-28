@@ -1,18 +1,14 @@
-import {Avatar, AvatarBadge, Box, Flex, HStack, Text, useColorMode, VStack} from "@chakra-ui/react";
+import {Avatar, Box, Flex, HStack, Text, useColorMode} from "@chakra-ui/react";
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
-import useChatStore from "../../../store/Backend-stores/chatStore.js";
 import useGetUserProfileById from "../../../hooks/back-end-hooks/useGetUserProfileById.js";
 import ChatUserItemSkeleton from "./Chat-UserItemSkeleton.jsx";
-import {postTimeAgo} from "../../../utils/postTimeAgo.js";
-import {messagesTime} from "../../../utils/messagesTime.js";
 import {timeAgo} from "../../../utils/timeAgo.js";
 
 function ChatUserItem({userId,myId,date,lastMessage}) {
 
     const {colorMode}=useColorMode()
     const switchMode=(dark,light)=>(colorMode==='dark'?dark:light)
-    const setSelectedUser = useChatStore((state) => state.setUser);
     const [combinedId, setCombinedId] = useState()
     const {isUserLoading,getUserProfile,userProfile}=useGetUserProfileById()
 
@@ -50,11 +46,24 @@ function ChatUserItem({userId,myId,date,lastMessage}) {
                         {userProfile?.username}
                     </Text>
 
-                        <Text fontSize={'xs'} sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}} maxW={'full'} color={'#bdbdbd'}>
-                            {lastMessage &&
-                                `${lastMessage} • ${timeAgo(date)}`
-                            }
+                        <Text fontSize={'xs'} color={'#bdbdbd'}  display="flex" alignItems="center">
+                            <Box
+                                sx={{
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: '1',
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden'
+                                }}
+                                maxW={'210px'}
+                                mr={1} // Add margin-right for spacing between elements
+                            >
+                                {lastMessage}
+                            </Box>
+                            {lastMessage && `• ${timeAgo(date)}`}
                         </Text>
+
+
+
 
 
 

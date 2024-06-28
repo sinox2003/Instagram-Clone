@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {
     Box,
     Button,
@@ -7,7 +7,8 @@ import {
     Input,
     InputGroup,
     InputLeftElement,
-    InputRightElement, Spinner,
+    InputRightElement,
+    Spinner,
     useColorMode
 } from "@chakra-ui/react";
 import {BsEmojiSmile} from "react-icons/bs";

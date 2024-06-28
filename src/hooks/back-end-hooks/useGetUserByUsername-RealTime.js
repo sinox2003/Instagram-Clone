@@ -1,8 +1,7 @@
-
-import { useEffect, useState } from "react";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {collection, onSnapshot, query, where} from "firebase/firestore";
 import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
-import { firestore } from "../../config/firebase.js";
+import {firestore} from "../../config/firebase.js";
 
 const UseGetUserByUsernameRealTime = (username) => {
     const [isLoading, setIsLoading] = useState(true);

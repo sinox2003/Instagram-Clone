@@ -1,4 +1,4 @@
-import {Box, Button, Center, Text, useColorMode, useDisclosure, VStack} from "@chakra-ui/react";
+import {Box, Button, Center, Text, useDisclosure, VStack} from "@chakra-ui/react";
 
 import {PiMessengerLogoLight} from "react-icons/pi";
 

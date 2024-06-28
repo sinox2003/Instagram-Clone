@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
     Avatar,
-    AvatarBadge,
     Box,
     Button,
     Center,
     FormControl,
     FormLabel,
     Heading,
-    IconButton,
     Input,
     Modal,
     ModalBody,
@@ -19,7 +17,6 @@ import {
     useColorModeValue,
     VStack,
 } from "@chakra-ui/react";
-import { IoClose } from "react-icons/io5";
 import useEditProfile from "../../../hooks/back-end-hooks/useEditProfile.js";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import usePreviewImg from "../../../hooks/back-end-hooks/usePreviewImg.js";

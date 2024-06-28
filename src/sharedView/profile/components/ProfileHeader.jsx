@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState} from 'react';
 import {
     Avatar,
     Box,
@@ -100,7 +100,7 @@ function ProfileHeader({user,isUserLoading}) {
                     <SkeletonText isLoaded={!isUserLoading} noOfLines={2} w={'100%'}>
                         <Flex direction='column' gap='3'>
                             <Flex gap={{ base: 3, md: 6 }} direction={{ base: 'column', md: 'row' }}>
-                                <Text fontSize="larger" maxW={{base:"200px",md:'400px'}} fontWeight="semibold" sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>
+                                <Text fontSize={{base:"regular",md:"larger"}} maxW={{base:"170px",md:'400px'}} fontWeight="semibold" sx={{display: '-webkit-box', WebkitLineClamp: '1', WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>
                                     {user?.username}
                                 </Text>
                                 {

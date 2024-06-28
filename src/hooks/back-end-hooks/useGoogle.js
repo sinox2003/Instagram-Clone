@@ -1,6 +1,6 @@
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {useSignInWithGoogle} from "react-firebase-hooks/auth";
 
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import {doc, getDoc, setDoc} from "firebase/firestore";
 import {auth, firestore} from "../../config/firebase.js";
 import useShowToast from "../useShowToast.jsx";
 import useAuthStore from "../../store/Backend-stores/authStore.js";

@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
-import { doc, updateDoc } from "firebase/firestore";
+import {useState} from "react";
+import {getDownloadURL, ref, uploadString} from "firebase/storage";
+import {doc, updateDoc} from "firebase/firestore";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
 import useUserProfileStore from "../../store/Backend-stores/userProfileStore.js";
 import useShowToast from "../useShowToast.jsx";
-import { firestore, storage } from "../../config/firebase.js";
+import {firestore, storage} from "../../config/firebase.js";
 import useSliderAlert from "../useSliderAlert.jsx";
 
 const useEditProfile = () => {
