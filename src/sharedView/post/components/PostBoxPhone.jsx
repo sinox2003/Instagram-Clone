@@ -14,18 +14,7 @@ function PostBoxPhone({close}) {
 
     const newURL = window.location.href.split('/');
     const id = newURL[newURL.length - 1];
-    const{areCommentsLoading,fetchComments,comments}=useGetCommentsByPost()
-
-    useEffect(() => {
-
-        getComments()
-    }, []);
-
-
-
-    const getComments=()=>{
-        fetchComments(id)
-    }
+    const{areCommentsLoading,comments}=useGetCommentsByPost(id)
 
 
 
@@ -48,7 +37,7 @@ function PostBoxPhone({close}) {
             </ModalBody>
 
 
-            <PostCommentInput refresh={getComments}  id={id}/>
+            <PostCommentInput   id={id} focused={null} />
         </ModalContent>
 
 

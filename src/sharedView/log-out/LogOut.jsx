@@ -34,12 +34,12 @@ function LogOut({isOpen, onClose}) {
                         <Heading size={'md'} fontWeight={'semibold'} mb={2} mt={7}>Logging Out</Heading>
                         <Text mb={7} >You need to log back in.</Text>
                         <Flex width={'full'}  direction={{base:'column',md:'row'}} borderTop={'1px'} borderColor={switchMode('whiteAlpha.300','blackAlpha.300')}>
-                            <Button width={{base:'full',md:'50%'}} variant={'ghost'} fontSize={'md'} size={'lg'} borderRadius={0} ref={cancelRef} onClick={onClose}>
+                            <Button width={{base:'full',md:'50%'}} variant={'ghost'} _hover={{bg: switchMode('whiteAlpha.200', 'blackAlpha.100')}} fontSize={'md'} size={'lg'} borderRadius={0} ref={cancelRef} onClick={onClose}>
                                 Cancel
                             </Button>
 
                             <Box borderTop={{base:'1px',md:'0'}} borderColor={switchMode('whiteAlpha.300','blackAlpha.300')} width={{base:'full',md:'50%'}}>
-                                <Button width={'full'} variant={'ghost'} onClick={handleLogout} isLoading={loading}  fontSize={'md'} size={'lg'}  borderRadius={0} >
+                                <Button width={'full'} variant={'ghost'}  _hover={{bg: switchMode('whiteAlpha.200', 'blackAlpha.100')}}   onClick={handleLogout} isLoading={loading}  fontSize={'md'} size={'lg'}  borderRadius={0} >
                                     Log out
                                 </Button>
                             </Box>

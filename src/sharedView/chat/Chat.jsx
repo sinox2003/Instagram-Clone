@@ -38,7 +38,7 @@ function ChatPage() {
 
 
     return (
-        <Flex w={'full'} h={'100dvh'} zIndex={{base:1502,md:1499}}  overflow={'hidden'}>
+        <Flex w={'full'} h={'100dvh'} zIndex={{base:1502,md:1498}}  overflow={'hidden'}>
             <ChatUsersList />
             <Suspense fallback={<ProgressLoader />} >
                 <Outlet />

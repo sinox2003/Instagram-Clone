@@ -1,8 +1,8 @@
 import useAuthStore from "../../store/Backend-stores/authStore.js";
-import {useState} from "react";
+import { useState } from "react";
 import useShowToast from "../useShowToast.jsx";
-import {arrayRemove, arrayUnion, doc, updateDoc} from "firebase/firestore";
-import {firestore} from "../../config/firebase.js";
+import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { firestore } from "../../config/firebase.js";
 
 const useLikePost = (post, id) => {
     const authUser = useAuthStore((state) => state.user);
@@ -10,7 +10,6 @@ const useLikePost = (post, id) => {
     const [isUpdating, setIsUpdating] = useState(false);
     const [likes, setLikes] = useState(post.likes?.length);
     const [isLiked, setIsLiked] = useState(post.likes?.includes(authUser?.uid));
-
     const showToast = useShowToast();
 
     const handleLikePost = async () => {
@@ -31,11 +30,23 @@ const useLikePost = (post, id) => {
                 likedPosts: isLiked ? arrayRemove(id) : arrayUnion(id)
             });
 
-            // Update the authUser state
-            // const updatedLikedPosts = isLiked
-            //     ? authUser.likedPosts.filter(postId => postId !== id)
-            //     : [...authUser.likedPosts, id];
-            // setUser({ ...authUser, likedPosts: updatedLikedPosts });
+            // Add notification if the post is liked
+            if (!isLiked) {
+                const notification = {
+                    type: "newLike",
+                    likerId: authUser.uid,
+                    postImg:post.imageURL,
+                    postId: id,
+                    timestamp: Date.now(),
+
+                };
+
+                const userNotificationsRef = doc(firestore, "userNotifications", post.createdBy); // Assuming post.userId is the post owner's ID
+                await updateDoc(userNotificationsRef, {
+                    notifications: arrayUnion(notification),
+                    unread: true,
+                });
+            }
 
         } catch (error) {
             showToast('Error', error.message, 'error');

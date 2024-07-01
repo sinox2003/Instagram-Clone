@@ -13,7 +13,7 @@ const useLogout = () => {
             await signOut();
             localStorage.removeItem("user-info");
             logoutUser();
-            unsetChatUser();
+
 
 
 

@@ -4,7 +4,7 @@ import {
     AlertDialogContent,
     AlertDialogOverlay,
     Box,
-    Button,
+    Button, Center, Spinner,
     useClipboard,
     useColorMode,
     VStack
@@ -55,7 +55,7 @@ function PostOptionsModal() {
     const showToast = useShowToast();
     const [isDeleting, setIsDeleting] = useState(false);
 
-    const {isFollowing,isUpdating,handleFollowUser}=useFollowUser(userProfile?.uid)
+    const {isFollowing,isUpdating,loading,handleFollowUser}=useFollowUser(userProfile?.uid)
 
 
     const handleCopyLink=()=>{
@@ -65,6 +65,9 @@ function PostOptionsModal() {
         onClose()
 
     }
+
+
+
 
     const handleGoToPost=()=>{
         navigate(`/main/p/${posId}`)
@@ -136,16 +139,21 @@ function PostOptionsModal() {
                             Delete post
                             </Button>
                             :
-                                (
-                                     isFollowing ?
-                                        <Button width={'full'} onClick={()=>{handleFollowUser(); onClose()}}  isLoading={isUpdating} color={'#ED4856'} borderBottom={'1px'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}     >
-                                            Unfollow
-                                        </Button>
-                                        :
-                                        <Button width={'full'} onClick={handleFollowUser}  isLoading={isUpdating} color={'#0095F6'} borderBottom={'1px'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}     >
-                                            Follow
-                                        </Button>
-                                )
+                                isUpdating ?
+                                    <Center borderBottom={'1px'} borderColor={switchMode('#363636','#DBDBDB')}   h={'50px'} >
+                                        <Spinner size={"sm"} />
+                                    </Center>
+                                    :
+                                    (
+                                          isFollowing ?
+                                            <Button width={'full'} onClick={()=>{handleFollowUser(); onClose()}}  isLoading={isUpdating} color={'#ED4856'} borderBottom={'1px'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}     >
+                                                Unfollow
+                                            </Button>
+                                            :
+                                            <Button width={'full'}  onClick={handleFollowUser}  isLoading={isUpdating} color={'#0095F6'} borderBottom={'1px'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}     >
+                                                Follow
+                                            </Button>
+                                    )
 
 
                         }

@@ -48,6 +48,13 @@ const useSignUpWithEmailAndPassword = () => {
 				};
 				await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
 				await setDoc(doc(firestore, "userChats", newUser.user.uid), {});
+
+				const initialNotifications = {
+					unread: false,
+					notifications: []
+				};
+
+				await setDoc(doc(firestore, "userNotifications", newUser.user.uid), initialNotifications);
 				localStorage.setItem("user-info", JSON.stringify(userDoc));
 				loginUser(userDoc);
 			}

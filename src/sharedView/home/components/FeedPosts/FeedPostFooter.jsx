@@ -12,7 +12,7 @@ import useLikePost from "../../../../hooks/back-end-hooks/useLikePost.js";
 import useSavePost from "../../../../hooks/back-end-hooks/useSavePost.js";
 import {PiPaperPlaneTiltBold} from "react-icons/pi";
 
-function FeedPostFooter({ doubleClickLike, setDoubleClickLike,id, post, user }) {
+function FeedPostFooter({ doubleClickLike,id, post, user }) {
     const { colorMode } = useColorMode();
     const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
 
@@ -96,7 +96,7 @@ function FeedPostFooter({ doubleClickLike, setDoubleClickLike,id, post, user }) 
                 }
             </Flex>
             <Text w='full' px={{ base: 2, smd: 1 }} cursor='pointer' onClick={handleClickOnComments} fontSize={'sm'} color={'gray'}> View all {post?.comments.length} comments </Text>
-            <FeedPostCommentInput  id={id}/>
+            <FeedPostCommentInput  id={id}  />
         </VStack>
     );
 }

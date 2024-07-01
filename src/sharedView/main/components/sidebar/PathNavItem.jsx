@@ -26,6 +26,7 @@ function PathNavItem({ path, name, icon, filledIcon }) {
                             boxShadow={switchMode("none", 'xs')}
                             color={switchMode("white", 'black')}
                             m={2}
+                            openDelay={500}
                             placement='right'
                             p={2}
                             borderRadius={9}

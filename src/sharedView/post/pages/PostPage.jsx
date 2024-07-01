@@ -26,13 +26,13 @@ function PostPage() {
 
     const newURL = window.location.href.split('/');
     const id = newURL[newURL.length - 1];
-    const{areCommentsLoading,fetchComments,comments}=useGetCommentsByPost()
+    const{areCommentsLoading,comments}=useGetCommentsByPost(id)
 
     useEffect(() => {
 
 
         getPost(id);
-        getComments()
+
     }, []);
 
     useEffect(() => {
@@ -42,11 +42,6 @@ function PostPage() {
 
 
 
-
-
-    const getComments=()=>{
-        fetchComments(id)
-    }
 
 
 
@@ -99,8 +94,8 @@ function PostPage() {
                         <VStack minW={'450px'} h={'full'}>
                             <PostHeader post={post} user={userProfile} isLoading={isUserLoading} />
                             <VStack w={'full'} flexGrow={1} h={`calc(${newSize.height}px - 61px)`}>
-                                <PostComments closeModal={close} id={id} comments={comments} isLoading={areCommentsLoading} />
-                                <PostFooter post={post} id={id} user={userProfile} refresh={getComments} />
+                                <PostComments  caption={post?.caption} createdAt={post?.createdAt} owner={userProfile} closeModal={close} id={id} comments={comments} isLoading={areCommentsLoading} />
+                                <PostFooter post={post} id={id} user={userProfile}  />
                             </VStack>
                         </VStack>
                     </Flex>

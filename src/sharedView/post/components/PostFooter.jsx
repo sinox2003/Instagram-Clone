@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Divider, Flex, IconButton, keyframes, Text, useColorMode} from "@chakra-ui/react";
+import React, {useState} from 'react';
+import {Box, Divider, Flex, IconButton, keyframes, Text, useColorMode} from "@chakra-ui/react";
 import usePostLikes from "../../../hooks/usePostLikes.jsx";
 import useSharePost from "../../../hooks/useSharePost.jsx";
 import {GoHeart, GoHeartFill} from "react-icons/go";
@@ -9,9 +9,10 @@ import PostCommentInput from "./PostCommentInput.jsx";
 import {timeAgo} from "../../../utils/timeAgo.js";
 import useLikePost from "../../../hooks/back-end-hooks/useLikePost.js";
 import useSavePost from "../../../hooks/back-end-hooks/useSavePost.js";
+import {PiPaperPlaneTiltBold} from "react-icons/pi";
 
 
-function PostFooter({post,user,id,refresh}) {
+function PostFooter({post,user,id}) {
 
 
     const {colorMode} = useColorMode();
@@ -62,8 +63,8 @@ function PostFooter({post,user,id,refresh}) {
                         <IconButton onClick={handleLikePost} _hover={{color:'gray'}}  variant={'link'} color={switchMode('white','black')}  aria-label={'unlike'}   icon={<GoHeart strokeWidth={0.3} size={27} />} />
 
                     }
-                    <IconButton  _hover={{color:'gray'}}   transform="rotateY(180deg)"  onClick={handleFocus} variant={'link'} color={switchMode('white','black')}  aria-label={'comments'}   icon={<RiChat3Line strokeWidth={0} size={28} />} />
-                    <IconButton  _hover={{color:'gray'}}  onClick={handleOnShareClick} transform="rotate(10deg)"  variant={'link'} color={switchMode('white','black')}  aria-label={'unsaved'}   icon={<RiSendPlaneLine strokeWidth={0} size={28} />} />
+                    <IconButton  _hover={{color:'gray'}}   transform="rotateY(180deg)"  onClick={handleFocus} variant={'link'} color={switchMode('white','black')}  aria-label={'comments'}   icon={<RiChat3Line strokeWidth={0} size={27} />} />
+                    <IconButton  _hover={{color:'gray'}}  onClick={handleOnShareClick} transform="rotate(10deg)"  variant={'link'} color={switchMode('white','black')}  aria-label={'unsaved'}   icon={<Box  sx={{ transform: 'rotate(5deg)' }} ><PiPaperPlaneTiltBold size={25} /></Box>} />
                 </Flex>
                 {saved?
                     <IconButton   onClick={handleSavePost}   variant={'link'} color={switchMode('white','black')}  aria-label={'unsaved'}   icon={<FaBookmark strokeWidth={3} size={23} />} />
@@ -85,7 +86,7 @@ function PostFooter({post,user,id,refresh}) {
                 }
             <Text  px={3}   as='span' w={'full'}   pb={3}  cursor='pointer' fontSize={'xs'}  color={'gray'}  > {timeAgo(post.createdAt)}</Text>
 
-            <PostCommentInput post={post} id={id} focused={focus} refresh={refresh} />
+            <PostCommentInput  id={id} focused={focus} />
 
 
 

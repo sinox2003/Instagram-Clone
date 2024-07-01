@@ -1,8 +1,9 @@
 import {Box, Text} from "@chakra-ui/react";
 import PostComment from "./PostComment.jsx";
 import PostCommentSkeleton from "./PostCommentSkeleton.jsx";
+import PostCaption from "./PostCaption.jsx";
 
-function PostComments({  comments,isLoading,closeModal }) {
+function PostComments({  comments,isLoading,closeModal,owner,caption,createdAt }) {
 
 
 
@@ -15,6 +16,10 @@ function PostComments({  comments,isLoading,closeModal }) {
             }}
             overflowY={"auto"}
         >
+            <Box display={{base:'none',md:'block'}}>
+                <PostCaption closeModal={closeModal} owner={owner} caption={caption} createdAt={createdAt} />
+
+            </Box>
             {isLoading ? (
                 <>
                     <PostCommentSkeleton />
@@ -27,9 +32,9 @@ function PostComments({  comments,isLoading,closeModal }) {
                 {comments.length===0?
                     <Text p='4' size={'sm'} fontWeight={'semibold'}>No Comments</Text>
                     :
-                    comments?.map((comment) => (
+                    comments?.map((comment,index) => (
                         <PostComment
-                            key={comment.id}
+                            key={index}
                             comment={comment}
                             closeModal={closeModal}
                         />

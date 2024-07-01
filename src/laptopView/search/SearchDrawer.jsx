@@ -1,4 +1,4 @@
-import {Drawer, DrawerCloseButton, DrawerContent, DrawerOverlay, useBreakpointValue,} from "@chakra-ui/react";
+import {Box, Drawer, DrawerCloseButton, DrawerContent, DrawerOverlay, useBreakpointValue,} from "@chakra-ui/react";
 
 import SearchBox from "./components/SearchBox.jsx";
 import {useEffect} from "react";
@@ -29,12 +29,14 @@ function SearchDrawer({isOpen,onClose}) {
                     blockScrollOnMount={false}
 
             >
-                <DrawerOverlay  />
+                <DrawerOverlay />
+                <Box  zIndex={1499} pos='absolute' >
+                    <DrawerContent maxW={'397px'}  >
+                        <DrawerCloseButton />
+                        <SearchBox />
+                    </DrawerContent>
+                </Box>
 
-                <DrawerContent maxW={'397px'}  >
-                    <DrawerCloseButton />
-                    <SearchBox />
-                </DrawerContent>
             </Drawer>
 
 

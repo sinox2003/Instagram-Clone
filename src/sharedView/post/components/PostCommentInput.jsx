@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {
     Box,
     Button,
@@ -16,7 +16,7 @@ import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 import usePostComment from "../../../hooks/back-end-hooks/usePostComment.js";
 
-function PostCommentInput({id,refresh}) {
+function PostCommentInput({id,focused}) {
 
 
     const [isPickerVisible, setPickerVisible] = useState(false);
@@ -40,6 +40,11 @@ function PostCommentInput({id,refresh}) {
         commentRef.current.focus()
     };
 
+    useEffect(() => {
+        handleOverlayClick()
+    }, [focused]);
+
+
     const handleOnChange=(e)=>{
         setComment(e.target.value)
         if(e.target.value.length > 0){
@@ -54,7 +59,6 @@ function PostCommentInput({id,refresh}) {
 
         if(commentRef.current.value.length > 0){
             await handlePostComment(id, commentRef.current.value)
-            refresh()
             setComment('')
         }
 

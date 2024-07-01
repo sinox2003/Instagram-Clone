@@ -13,11 +13,13 @@ import {
 } from "@chakra-ui/react";
 import {IoMdCloseCircle} from "react-icons/io";
 import {Link, NavLink} from "react-router-dom";
-import {InstagramLogo} from "../../../assets/constants.jsx";
+import {HeartWithNotification, InstagramLogo} from "../../../assets/constants.jsx";
 import {GoHeart, GoHeartFill} from "react-icons/go";
 import SearchItems from "../../../laptopView/search/components/SearchItems.jsx";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import useSearchUser from "../../../hooks/back-end-hooks/useSearchUser.js";
+import {doc, onSnapshot} from "firebase/firestore";
+import {firestore} from "../../../config/firebase.js";
 
 function HomeNavBar() {
     const searchReference = useRef();
@@ -28,6 +30,7 @@ function HomeNavBar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
     const [isVisible, setIsVisible] = useState(true);
+    const [unread, setUnread] = useState(false);
 
     const authUser = useAuthStore((state) => state.user);
     const { isLoading, getUserProfile, user } = useSearchUser();
@@ -41,14 +44,31 @@ function HomeNavBar() {
         getUserProfile(query);
     };
 
+
+    useEffect(() => {
+        if (authUser?.uid) {
+            const unsubscribe = onSnapshot(doc(firestore, "userNotifications", authUser.uid), (doc) => {
+                if (doc.exists()) {
+                    setUnread(doc.data().unread);
+                }
+            });
+
+            return () => unsubscribe();
+        }
+    }, [authUser?.uid]);
+
+
     useEffect(() => {
         const handleOutsideClick = (event) => {
-            if (
-                !menuRef.current.contains(event.target) &&
-                !searchReference.current.contains(event.target)
-            ) {
-                setMenuOpen(false);
+            if(event){
+                if (
+                    !menuRef.current.contains(event.target) &&
+                    !searchReference.current.contains(event.target)
+                ) {
+                    setMenuOpen(false);
+                }
             }
+
         };
 
         document.body.addEventListener("click", handleOutsideClick);
@@ -109,9 +129,9 @@ function HomeNavBar() {
                         </InputRightElement >
                     </InputGroup>
 
-                    <NavLink to={`/main/profile/${authUser.username}/liked`} style={{ alignSelf: 'end' }} >
+                    <NavLink to={`/main/notifications`} style={{ alignSelf: 'end' }} >
                         {({ isActive }) => (
-                            <IconButton aria-label={'notifications'} _hover={{ transform: 'scale(1.06)', '& svg': { strokeWidth: '0.4' } }} transition={'all ease 0.1s'} variant='link' color={switchMode('white', 'black')} icon={isActive ? <GoHeartFill size={28} strokeWidth={0.3} /> : <GoHeart size={28} strokeWidth={0.3} />} />
+                            <IconButton aria-label={'notifications'} _hover={{ transform: 'scale(1.06)', '& svg': { strokeWidth: '0.4' } }} transition={'all ease 0.1s'} variant='link' color={switchMode('white', 'black')} icon={isActive ? <GoHeartFill size={28} strokeWidth={0.3} /> : ( unread ? <HeartWithNotification borderColor={switchMode('black', 'white')} /> : <GoHeart size={28} strokeWidth={0.3} /> ) } />
                         )}
                     </NavLink>
                 </HStack>

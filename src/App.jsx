@@ -15,6 +15,7 @@ const LazyHomePage = lazy(() => import("./sharedView/home/pages/HomePage.jsx"));
 const LazyExplorePage = lazy(() => import("./sharedView/explore/pages/ExplorePage.jsx"));
 const ProfilePage = lazy(() => import("./sharedView/profile/pages/ProfilePage.jsx"));
 const LazyChatPage = lazy(() => import("./sharedView/chat/Chat.jsx"));
+const LazyNotificationsPage = lazy(() => import("./sharedView/notifications/pages/NotificationsPage.jsx"));
 const LazyInbox = lazy(() => import("./sharedView/chat/pages/Inbox.jsx"));
 const LazyDirect = lazy(() => import("./sharedView/chat/pages/Direct.jsx"));
 const LazyProfilePosts = lazy(() => import("./sharedView/profile/components/ProfilePosts.jsx"));
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
                     {
                         path: "explore",
                         element: <LazyExplorePage />
+                    },
+                    {
+                        path: "notifications",
+                        element: <LazyNotificationsPage />
                     },
                     {
                         path: "chat",
