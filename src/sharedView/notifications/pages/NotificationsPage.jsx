@@ -34,19 +34,17 @@ function NotificationsPage() {
 
     return (
 
-            // isLoading ?
+             isLoading ?
                 <Center >
                     <p>Loading...</p>
                 </Center>
-                // :
-                // notifications.map((notification,key) =>{
-                //         console.log(notification)
-                //
-                // }
-                //     // <div key={key}>
-                //     //     <h3>{notification.type}</h3>
-                //     // </div>
-                // )
+                :
+                 notifications.map((notification,key) =>{
+                
+                <div key={key}>
+                  <h3>{notification.type}</h3>
+                </div>
+                 }
 
     )
 }
