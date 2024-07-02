@@ -12,23 +12,24 @@ const UseGetNotification = () => {
 
     const getNotifications =async ()=>{
         setIsLoading(true)
-        if(authUser?.uid){
+    
 
             try {
-                const notificationsCollectionRef = collection(firestore, `userNotifications/${authUser.uid}/notifications`);
-                const q = query(notificationsCollectionRef);
 
-                const querySnapshot = await getDocs(q);
-                console.log(querySnapshot)
-                // const notificationsList = querySnapshot.docs.map(doc => doc.data());
-                // setNotifications(notificationsList);
-            } catch (error) {
-                console.error("Error fetching notifications: ", error.message);
-            }finally {
-                setIsLoading(false)
-            }
 
-        }
+                const userNotificationsRef = firebase.firestore().collection('userNotifications').doc(authUser.uid);
+
+                userNotificationsRef.get().then((doc) => {
+                if (doc.exists) {
+                 console.log("Document data:", doc.data());
+                } else {
+                    console.log("No such document!");
+                  }
+              }).catch((error) => {
+                 console.error("Error getting document:", error);
+             });
+
+            setIsLoading(false)
     }
 
     useEffect(() => {
