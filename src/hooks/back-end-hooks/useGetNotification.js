@@ -21,6 +21,9 @@ const UseGetNotification = () => {
 
                 userNotificationsRef.get().then((doc) => {
                 if (doc.exists) {
+                    const data = doc.data();
+                    const notifications = data.notifications;
+                    setNotifications(notifications);
                  console.log("Document data:", doc.data());
                 } else {
                     console.log("No such document!");
