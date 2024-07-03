@@ -1,45 +1,41 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
-import {collection, doc, getDocs, orderBy, query} from "firebase/firestore";
-import {firestore} from "../../config/firebase.js";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "../../config/firebase.js";
 
-const UseGetNotification = () => {
-    const [notifications, setNotifications] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [isFetchingMore, setIsFetchingMore] = useState(false)
+const useGetNotification = () => {
+    const [notifications, setNotifications] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const authUser = useAuthStore(state => state.user);
 
-
-    const getNotifications =async ()=>{
-        setIsLoading(true)
-    
+    const getNotifications = async () => {
+        setIsLoading(true);
+        if (authUser?.uid) {
+            const notificationsRef = doc(firestore, 'userNotifications', authUser.uid);
 
             try {
-
-
-                const userNotificationsRef = firebase.firestore().collection('userNotifications').doc(authUser.uid);
-
-                userNotificationsRef.get().then((doc) => {
-                if (doc.exists) {
-                    const data = doc.data();
-                    const notifications = data.notifications;
-                    setNotifications(notifications);
-                 console.log("Document data:", doc.data());
+                const docSnapshot = await getDoc(notificationsRef);
+                if (docSnapshot.exists()) {
+                    const data = docSnapshot.data();
+                    // Order the notifications by timestamp before setting the state
+                    const sortedNotifications = data.notifications?.sort((a, b) => b.timestamp - a.timestamp);
+                    setNotifications(sortedNotifications || []);
                 } else {
                     console.log("No such document!");
-                  }
-              }).catch((error) => {
-                 console.error("Error getting document:", error);
-             });
-
-            setIsLoading(false)
-    }
+                }
+            } catch (error) {
+                console.error("Error fetching notifications: ", error.message);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+    };
 
     useEffect(() => {
-        getNotifications()
-    }, []);
+        getNotifications();
+    }, [authUser?.uid]);
 
-    return { notifications, isLoading, isFetchingMore }
-}
+    return { notifications, isLoading };
+};
 
-export default UseGetNotification;
+export default useGetNotification;
