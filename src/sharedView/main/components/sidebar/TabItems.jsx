@@ -50,7 +50,7 @@ function TabItems() {
 
             <ModalNavItem name='Create' icon={<CreateLogo />} />
 
-            <PathNavItem name='profile' path={`profile/${authUser.username}`} icon={<Avatar src={authUser.profilePicURL} w='28px' h='28px' />} filledIcon={<Avatar src={authUser.profilePicURL} w='28px' h='28px' border={switchMode('white 2px solid ', 'black 2px solid ')} />} />
+            <PathNavItem name={`Profile • ${authUser.username}`} path={`profile/${authUser.username}`} icon={<Avatar src={authUser.profilePicURL} w='28px' h='28px' />} filledIcon={<Avatar src={authUser.profilePicURL} w='28px' h='28px' border={switchMode('white 2px solid ', 'black 2px solid ')} />} />
 
         </Stack>
     );
