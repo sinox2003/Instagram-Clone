@@ -7,7 +7,7 @@ import {firestore} from "../../config/firebase.js";
 const useSavePost = (post, id) => {
     const authUser = useAuthStore((state) => state.user);
     const [isUpdating, setIsUpdating] = useState(false);
-    const [saved, setSaved] = useState(post.saves.includes(authUser?.uid));
+    const [saved, setSaved] = useState(post?.saves?.includes(authUser?.uid));
 
     const showToast = useShowToast();
 
