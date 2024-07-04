@@ -1,11 +1,13 @@
 import {Box, Button, IconButton, Tooltip, useColorMode} from "@chakra-ui/react";
 import {NavLink} from "react-router-dom";
 import useToggleSidebar from "../../../../hooks/useToggleSidebar.jsx";
+import useAuthStore from "../../../../store/Backend-stores/authStore.js";
 
 function PathNavItem({ path, name, icon, filledIcon }) {
     const { colorMode } = useColorMode();
     const switchMode = (dark, light) => (colorMode === 'dark' ? dark : light);
     const { isSidebarMinimized, isDrawerOpen, close } = useToggleSidebar();
+    const authUser = useAuthStore((state) => state.user);
 
     const handleState = (state1, state2) => {
         if (isDrawerOpen || isSidebarMinimized) {
@@ -21,7 +23,7 @@ function PathNavItem({ path, name, icon, filledIcon }) {
                     <Box display={handleState('block', { base: 'block', xl: 'none' })}>
                         <Tooltip
                             display={{ base: 'none', md: 'block' }}
-                            label={name}
+                            label={name==='Profile'?`Profile • ${authUser.username}`:name}
                             bg={switchMode('#262626', 'white')}
                             boxShadow={switchMode("none", 'xs')}
                             color={switchMode("white", 'black')}
