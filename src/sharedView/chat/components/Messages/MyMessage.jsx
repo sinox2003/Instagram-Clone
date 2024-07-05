@@ -25,7 +25,7 @@ const MyMessage = ({groupSize,index,message}) => {
 
     const isEmojiMessage = isEmojiOnly(message.text);
 
-    if (isEmojiMessage) {
+    if (isEmojiMessage && !message.img) {
 
         return (
 

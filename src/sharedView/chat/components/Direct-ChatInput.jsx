@@ -199,6 +199,7 @@ function DirectChatInput({user,chatId}) {
                         onKeyDown={handleOnEnter}
                         h={"44px"}
                         ref={messageRef}
+                        accept={'image/*'}
                         onInput={handleOnChange}
                         value={message}
                         variant="unstyled"

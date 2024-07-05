@@ -21,10 +21,11 @@ const UserMessage = ({groupSize,index,message}) => {
 
     const isEmojiMessage = isEmojiOnly(message.text);
 
-    if (isEmojiMessage) {
+    if (isEmojiMessage && !message.img) {
 
         return (
             <VStack w={'full'} flexDir="row" spacing={3} onMouseEnter={()=>setShowMore(true)} onMouseLeave={()=>setShowMore(false)} >
+
                 <Text  fontSize={"50px"}>
                     {message.text}
                 </Text>

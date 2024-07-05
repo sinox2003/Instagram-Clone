@@ -4,7 +4,7 @@ import useToggleSidebar from "../../../hooks/useToggleSidebar.jsx";
 import useAuthStore from "../../../store/Backend-stores/authStore.js";
 import { firestore } from "../../../config/firebase.js";
 import useGetNotification from "../../../hooks/back-end-hooks/useGetNotification.js";
-import {Box, VStack, Text, useColorMode, Divider} from "@chakra-ui/react";
+import {Box, VStack, Text, useColorMode, Divider, Heading} from "@chakra-ui/react";
 import NotificationNavBar from "../components/NotificationNavBar.jsx";
 import NotificationSkeleton from "../components/NotificationSkeleton.jsx";
 import NotificationNewLike from "../components/Notification-newLike.jsx";
@@ -99,10 +99,21 @@ function NotificationsPage() {
                     <Box mt={{ base: "45px", md: 6 }} overflowY="auto"
                          h={{ base: "calc(100dvh - 100px)", md: '100vh' }} w={"full"}>
                         <VStack>
-                            {renderGroupedNotifications(groupedNotifications.today, "Today")}
-                            {renderGroupedNotifications(groupedNotifications.thisWeek, "This Week")}
-                            {renderGroupedNotifications(groupedNotifications.thisMonth, "This Month")}
-                            {renderGroupedNotifications(groupedNotifications.earlier, "Earlier")}
+                            {
+                            notifications.length===0 ?
+
+                                <Heading  size={"lg"}  pt={"8px"} >  No notification </Heading>
+
+                                :
+                                <>
+                                    {renderGroupedNotifications(groupedNotifications.today, "Today")}
+                                    {renderGroupedNotifications(groupedNotifications.thisWeek, "This Week")}
+                                    {renderGroupedNotifications(groupedNotifications.thisMonth, "This Month")}
+                                    {renderGroupedNotifications(groupedNotifications.earlier, "Earlier")}
+                                </>
+                            }
+
+
                         </VStack>
                     </Box>
             }

@@ -159,7 +159,7 @@ function PostOptionsModal() {
                         }
 
 
-                        <Button width={'full'} borderBottom={'1px'} onClick={handleGoToPost} fontWeight={'400'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}    >
+                        <Button hidden={posId === undefined} width={'full'} borderBottom={'1px'} onClick={handleGoToPost} fontWeight={'400'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}    >
                             Go to Post
                         </Button>
                         <Button width={'full'} borderBottom={'1px'} onClick={handleCopyLink} fontWeight={'400'} borderRadius={0} borderColor={switchMode('#363636','#DBDBDB')} _active={{bg:switchMode('blackAlpha.300','#F0F0F0')}}  variant='unstyled' h={'50px'}     >
