@@ -227,6 +227,7 @@ function DirectChatInput({user,chatId}) {
                             <Input
                                 display={"none"}
                                 type="file"
+                                accept="image/*"
                                 id="file"
                                 onChange={handleImageChange}
                             />

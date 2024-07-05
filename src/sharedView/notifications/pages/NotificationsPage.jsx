@@ -102,7 +102,7 @@ function NotificationsPage() {
                             {
                             notifications.length===0 ?
 
-                                <Heading  size={"lg"}  pt={"8px"} >  No notification </Heading>
+                                <Heading  size={{base:"md",md:"lg"}}  pt={"8px"} >  There are no notifications at the moment </Heading>
 
                                 :
                                 <>
