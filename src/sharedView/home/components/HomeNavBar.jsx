@@ -33,7 +33,7 @@ function HomeNavBar() {
     const [unread, setUnread] = useState(false);
 
     const authUser = useAuthStore((state) => state.user);
-    const { isLoading, getUserProfile, user } = useSearchUser();
+    const { isLoading, getUserProfile, users } = useSearchUser();
 
     const handleResetSearch = () => {
         searchReference.current.value = "";
@@ -119,7 +119,7 @@ function HomeNavBar() {
                         <Menu isOpen={isMenuOpen} isLazy lazyBehavior>
                             <MenuList ref={menuRef} pos={'absolute'} top={'48px'} left={{ base: 0, 'smd': '-25px' }} zIndex={201} width={'320px'} borderRadius={'lg'}>
                                 <Box overflowY={'auto'} h={'fit-content'} maxH={'80vh'}>
-                                    <SearchItems searchedUsers={user} isSearchLoading={isLoading} />
+                                    <SearchItems searchedUsers={users} isSearchLoading={isLoading} />
                                 </Box>
                             </MenuList>
                         </Menu>

@@ -19,7 +19,7 @@ function SearchBox() {
     const {colorMode}=useColorMode();
     const switchMode=(dark,light)=>(colorMode==='dark'?dark:light)
 
-    const{isLoading,getUserProfile,user}=useSearchUser()
+    const{isLoading,getUserProfile,users}=useSearchUser()
 
 
     const handleResetSearch=()=>{
@@ -57,8 +57,8 @@ function SearchBox() {
             <Divider />
 
             {
-                user.length ?
-                    <SearchItems searchedUsers={user} isSearchLoading={isLoading}  />
+                users.length ?
+                    <SearchItems searchedUsers={users} isSearchLoading={isLoading}  />
                     :
                     <Box p={5}>No user found</Box>
             }

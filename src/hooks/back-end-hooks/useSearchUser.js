@@ -1,45 +1,40 @@
-import {collection, endAt, getDocs, limit, orderBy, query, startAt} from 'firebase/firestore';
-import {useState} from 'react';
-import {firestore} from '../../config/firebase.js';
+import { collection, endAt, getDocs, limit, orderBy, query, startAt } from 'firebase/firestore';
+import { useState } from 'react';
+import { firestore } from '../../config/firebase.js';
 
 const useSearchUser = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [user, setUser] = useState([]);
+    const [users, setUsers] = useState([]);
     const [error, setError] = useState(null);
 
     const getUserProfile = async (username) => {
         setIsLoading(true);
-        setUser([]);
+        setUsers([]);
         setError(null);
+
         try {
-            const lowerCaseUsername = username.toLowerCase(); // Convert input to lowercase
-            const usersRef = collection(firestore, 'users');
-            const q = query(usersRef,
+            const usersCollection = collection(firestore, 'users');
+            const q = query(
+                usersCollection,
                 orderBy('username'),
-                startAt(lowerCaseUsername),
-                endAt(lowerCaseUsername + '\uf8ff'),
-                limit(8)); // Limit the number of results to 8
+                startAt(username),
+                endAt(username + '\uf8ff'), // ensures the search is inclusive and works with Firestore's string ordering
+                limit(10) // you can adjust the limit as needed
+            );
+
             const querySnapshot = await getDocs(q);
 
-            const users = [];
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                if (data.username.toLowerCase().includes(lowerCaseUsername)) { // Check with lowercase
-                    users.push(data);
-                }
-            });
+            const usersList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-            setUser(users);
-        } catch (error) {
-            console.error(error);
-            setError(error.message);
-            setUser([]);
+            setUsers(usersList);
+        } catch (err) {
+            setError(err.message);
         } finally {
             setIsLoading(false);
         }
     };
 
-    return { isLoading, getUserProfile, user, setUser, error };
+    return { isLoading, getUserProfile, users, setUsers, error };
 };
 
 export default useSearchUser;

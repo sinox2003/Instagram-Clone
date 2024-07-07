@@ -24,10 +24,10 @@ function ChatSearchModal({isOpen,onClose}) {
     const {colorMode}=useColorMode();
     const switchMode=(dark,light)=>(colorMode==='dark'?dark:light)
 
-    const{isLoading,getUserProfile,user,setUser}=useSearchUser()
+    const{isLoading,getUserProfile,users,setUsers}=useSearchUser()
 
     const handleClose=()=>{
-        setUser([])
+        setUsers([])
         onClose()
     }
 
@@ -38,7 +38,7 @@ function ChatSearchModal({isOpen,onClose}) {
         if(query.length>0){
             getUserProfile(query)
         }else {
-            setUser([])
+            setUsers([])
         }
 
 
@@ -83,7 +83,7 @@ function ChatSearchModal({isOpen,onClose}) {
 
                     <ModalBody overflowY={'auto'}  p={0}>
                         <VStack spacing={0} >
-                            <ChatSearchItems handleClose={handleClose} isSearchLoading={isLoading} searchedUsers={user} />
+                            <ChatSearchItems handleClose={handleClose} isSearchLoading={isLoading} searchedUsers={users} />
                         </VStack>
                     </ModalBody>
                 </ModalContent>
