@@ -19,7 +19,7 @@ const useSearchUser = () => {
                 orderBy('username'),
                 startAt(username),
                 endAt(username + '\uf8ff'), // ensures the search is inclusive and works with Firestore's string ordering
-                limit(10) // you can adjust the limit as needed
+                limit(8) // you can adjust the limit as needed
             );
 
             const querySnapshot = await getDocs(q);
