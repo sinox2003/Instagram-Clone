@@ -77,9 +77,9 @@ If you have any questions or suggestions, feel free to reach out to me at [mohae
 ![Screenshot 2024-07-07 130620](https://github.com/sinox2003/Instagram-Clone/assets/153320792/232592a6-1c41-478c-99e1-c9c0ae0d47fe)
 ![Screenshot 2024-07-07 130646](https://github.com/sinox2003/Instagram-Clone/assets/153320792/53f5493e-b6b4-4e3f-8eda-5b603549abda)
 ![Screenshot 2024-07-07 130720](https://github.com/sinox2003/Instagram-Clone/assets/153320792/502a2032-da97-4604-9679-c7367c151982)
-![Screenshot 2024-07-07 130752](https://github.com/sinox2003/Instagram-Clone/assets/153320792/52330e1b-c190-403d-af41-342d2851b258)
 ![Screenshot 2024-07-07 130812](https://github.com/sinox2003/Instagram-Clone/assets/153320792/f7a1da19-484c-4d59-b82b-c46dca11cc73)
 ![Screenshot 2024-07-07 130846](https://github.com/sinox2003/Instagram-Clone/assets/153320792/51d0aee1-ec6c-4cf3-af40-ce26398280d7)
 ![Screenshot 2024-07-07 131011](https://github.com/sinox2003/Instagram-Clone/assets/153320792/08a2280b-7f92-4aff-8e8a-64beeaebcd18)
 ![Screenshot 2024-07-07 131029](https://github.com/sinox2003/Instagram-Clone/assets/153320792/29231148-ba21-4256-ae19-018100a095bd)
+![Screenshot 2024-07-07 131051](https://github.com/sinox2003/Instagram-Clone/assets/153320792/4bb45102-641a-4d5c-8dd9-297ecf0a3da5)
 
