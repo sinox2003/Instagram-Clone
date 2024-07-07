@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import useAuthStore from "../../store/Backend-stores/authStore.js";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { firestore } from "../../config/firebase.js";
 
 const useGetNotification = () => {
     const [notifications, setNotifications] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const authUser = useAuthStore(state => state.user);
 
-    const getNotifications = async () => {
-        setIsLoading(true);
+    useEffect(() => {
         if (authUser?.uid) {
             const notificationsRef = doc(firestore, 'userNotifications', authUser.uid);
 
-            try {
-                const docSnapshot = await getDoc(notificationsRef);
+            const unsubscribe = onSnapshot(notificationsRef, (docSnapshot) => {
                 if (docSnapshot.exists()) {
                     const data = docSnapshot.data();
                     // Order the notifications by timestamp before setting the state
@@ -23,16 +21,17 @@ const useGetNotification = () => {
                 } else {
                     console.log("No such document!");
                 }
-            } catch (error) {
-                console.error("Error fetching notifications: ", error.message);
-            } finally {
                 setIsLoading(false);
-            }
-        }
-    };
+            }, (error) => {
+                console.error("Error fetching notifications: ", error.message);
+                setIsLoading(false);
+            });
 
-    useEffect(() => {
-        getNotifications();
+            // Cleanup subscription on unmount
+            return () => unsubscribe();
+        } else {
+            setIsLoading(false);
+        }
     }, [authUser?.uid]);
 
     return { notifications, isLoading };

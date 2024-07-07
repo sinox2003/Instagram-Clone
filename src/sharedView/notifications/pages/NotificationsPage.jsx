@@ -30,7 +30,8 @@ function NotificationsPage() {
                 console.error("Error updating notifications: ", error);
             });
         }
-    }, []);
+    }, [notifications]);
+
 
     const renderNotification = (key, notification) => {
         switch (notification.type) {
@@ -88,7 +89,7 @@ function NotificationsPage() {
             <NotificationNavBar />
             {
                 isLoading ?
-                    <VStack mt={{ base: "45px", md: 6 }} py={4} overflowY="auto" h={{ base: "calc(100dvh - 100px)", md: '100vh' }} w={"full"}>
+                    <VStack pt={{ base: "45px", md: 6 }} py={4} overflowY="auto" h={{ base: "calc(100dvh - 100px)", md: '100vh' }} w={"full"}>
                         {
                             skeletonArray.map((_, index) => (
                                 <NotificationSkeleton key={index} />
@@ -96,7 +97,7 @@ function NotificationsPage() {
                         }
                     </VStack>
                     :
-                    <Box mt={{ base: "45px", md: 6 }} overflowY="auto"
+                    <Box pt={{ base: "45px", md: 6 }} overflowY="auto"
                          h={{ base: "calc(100dvh - 100px)", md: '100vh' }} w={"full"}>
                         <VStack>
                             {
